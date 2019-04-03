@@ -1,0 +1,1174 @@
+{
+  "scalars": [
+    "JSON",
+    "Date",
+    "Number"
+  ],
+  "types": {
+    "typeUpdate": {
+      "code": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": true
+      },
+      "lastUpdated": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "typeUpdateCursorResult": {
+      "results": {
+        "type": "typeUpdate",
+        "isList": true
+      },
+      "filter": {
+        "type": "JSON"
+      },
+      "sort": {
+        "type": "[String]"
+      },
+      "pageNumber": {
+        "type": "Int"
+      },
+      "pageSize": {
+        "type": "Int"
+      },
+      "totalResults": {
+        "type": "Int"
+      },
+      "lastFetched": {
+        "type": "Date"
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "createTypeUpdatePayload": {
+      "createdItemsCursor": {
+        "type": "typeUpdateCursorResult"
+      }
+    },
+    "updateTypeUpdatePayload": {
+      "updatedItemsCursor": {
+        "type": "typeUpdateCursorResult"
+      }
+    },
+    "updateTypeUpdatesWithQueryPayload": {
+      "updatedItemsCursor": {
+        "type": "typeUpdateCursorResult"
+      }
+    },
+    "deleteTypeUpdatePayload": {
+      "deletedCount": {
+        "type": "Int",
+        "isScalar": true
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "deleteTypeUpdatesWithQueryPayload": {
+      "deletedCount": {
+        "type": "Int",
+        "isScalar": true
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "todo": {
+      "description": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "comment": "This is the unique identifier, obviously",
+        "isKey": true
+      },
+      "name": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "todoCategoryId": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "comment": "Reference key for todoCategory",
+        "isKey": false
+      },
+      "todoCategory": {
+        "type": "category",
+        "required": false
+      },
+      "status": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "todoCursorResult": {
+      "results": {
+        "type": "todo",
+        "isList": true
+      },
+      "filter": {
+        "type": "JSON"
+      },
+      "sort": {
+        "type": "[String]"
+      },
+      "pageNumber": {
+        "type": "Int"
+      },
+      "pageSize": {
+        "type": "Int"
+      },
+      "totalResults": {
+        "type": "Int"
+      },
+      "lastFetched": {
+        "type": "Date"
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "createTodoPayload": {
+      "createdItemsCursor": {
+        "type": "todoCursorResult"
+      }
+    },
+    "updateTodoPayload": {
+      "updatedItemsCursor": {
+        "type": "todoCursorResult"
+      }
+    },
+    "updateTodosWithQueryPayload": {
+      "updatedItemsCursor": {
+        "type": "todoCursorResult"
+      }
+    },
+    "deleteTodoPayload": {
+      "deletedCount": {
+        "type": "Int",
+        "isScalar": true
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "deleteTodosWithQueryPayload": {
+      "deletedCount": {
+        "type": "Int",
+        "isScalar": true
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "category": {
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": true
+      },
+      "name": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      },
+      "todos": {
+        "type": "todo",
+        "required": false,
+        "isList": true,
+        "args": {
+          "filter": {
+            "type": "JSON"
+          },
+          "sort": {
+            "type": "[String]"
+          },
+          "pageNumber": {
+            "type": "Int"
+          },
+          "pageSize": {
+            "type": "Int"
+          }
+        }
+      },
+      "todosCursor": {
+        "type": "todoCursorResult",
+        "required": false,
+        "isCursor": true,
+        "comment": "Returns a paginated cursor result of todos instead of an Array",
+        "args": {
+          "filter": {
+            "type": "JSON"
+          },
+          "sort": {
+            "type": "[String]"
+          },
+          "pageNumber": {
+            "type": "Int"
+          },
+          "pageSize": {
+            "type": "Int"
+          }
+        }
+      }
+    },
+    "categoryCursorResult": {
+      "results": {
+        "type": "category",
+        "isList": true
+      },
+      "filter": {
+        "type": "JSON"
+      },
+      "sort": {
+        "type": "[String]"
+      },
+      "pageNumber": {
+        "type": "Int"
+      },
+      "pageSize": {
+        "type": "Int"
+      },
+      "totalResults": {
+        "type": "Int"
+      },
+      "lastFetched": {
+        "type": "Date"
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "createCategoryPayload": {
+      "createdItemsCursor": {
+        "type": "categoryCursorResult"
+      }
+    },
+    "updateCategoryPayload": {
+      "updatedItemsCursor": {
+        "type": "categoryCursorResult"
+      }
+    },
+    "updateCategoriesWithQueryPayload": {
+      "updatedItemsCursor": {
+        "type": "categoryCursorResult"
+      }
+    },
+    "deleteCategoryPayload": {
+      "deletedCount": {
+        "type": "Int",
+        "isScalar": true
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "deleteCategoriesWithQueryPayload": {
+      "deletedCount": {
+        "type": "Int",
+        "isScalar": true
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    }
+  },
+  "inputs": {
+    "createTypeUpdateInput": {
+      "code": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": true
+      },
+      "lastUpdated": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "bulkCreatetypeUpdatesInput": {
+      "createItems": {
+        "type": "createTypeUpdateInput",
+        "isList": true
+      }
+    },
+    "updateTypeUpdateInput": {
+      "code": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": true
+      },
+      "lastUpdated": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "updateTypeUpdateValuesInput": {
+      "lastUpdated": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "updateTypeUpdateQueryInput": {
+      "values": {
+        "type": "updateTypeUpdateValuesInput",
+        "isList": false
+      },
+      "where": {
+        "type": "JSON",
+        "isScalar": true,
+        "required": true
+      }
+    },
+    "updateTypeUpdatesWithQueryInput": {
+      "updateQueries": {
+        "type": "updateTypeUpdateQueryInput",
+        "isList": true
+      }
+    },
+    "deleteTypeUpdateInput": {
+      "code": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": true
+      }
+    },
+    "deleteTypeUpdatesWithQueryInput": {
+      "deleteQueries": {
+        "type": "JSON",
+        "isScalar": true,
+        "isList": true
+      }
+    },
+    "createTodoInput": {
+      "description": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "id": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "comment": "This is the unique identifier, obviously",
+        "isKey": true
+      },
+      "name": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "todoCategoryId": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "comment": "Reference key for todoCategory",
+        "isKey": false
+      },
+      "todoCategory": {
+        "type": "createCategoryInput",
+        "required": false
+      },
+      "status": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "bulkCreatetodosInput": {
+      "createItems": {
+        "type": "createTodoInput",
+        "isList": true
+      }
+    },
+    "updateTodoInput": {
+      "description": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "comment": "This is the unique identifier, obviously",
+        "isKey": true
+      },
+      "name": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "todoCategoryId": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "comment": "Reference key for todoCategory",
+        "isKey": false
+      },
+      "todoCategory": {
+        "type": "updateCategoryInput"
+      },
+      "status": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "updateTodoValuesInput": {
+      "description": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "name": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "todoCategoryId": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "comment": "Reference key for todoCategory",
+        "isKey": false
+      },
+      "status": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "updateTodoQueryInput": {
+      "values": {
+        "type": "updateTodoValuesInput",
+        "isList": false
+      },
+      "where": {
+        "type": "JSON",
+        "isScalar": true,
+        "required": true
+      }
+    },
+    "updateTodosWithQueryInput": {
+      "updateQueries": {
+        "type": "updateTodoQueryInput",
+        "isList": true
+      }
+    },
+    "deleteTodoInput": {
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "comment": "This is the unique identifier, obviously",
+        "isKey": true
+      },
+      "todoCategory": {
+        "type": "deleteCategoryInput",
+        "required": false
+      }
+    },
+    "deleteTodosWithQueryInput": {
+      "deleteQueries": {
+        "type": "JSON",
+        "isScalar": true,
+        "isList": true
+      }
+    },
+    "createCategoryInput": {
+      "id": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": true
+      },
+      "name": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      },
+      "todos": {
+        "type": "createTodoInput",
+        "required": false,
+        "isList": true,
+        "args": {
+          "filter": {
+            "type": "JSON"
+          },
+          "sort": {
+            "type": "[String]"
+          },
+          "pageNumber": {
+            "type": "Int"
+          },
+          "pageSize": {
+            "type": "Int"
+          }
+        }
+      }
+    },
+    "bulkCreatecategoriesInput": {
+      "createItems": {
+        "type": "createCategoryInput",
+        "isList": true
+      }
+    },
+    "updateCategoryInput": {
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": true
+      },
+      "name": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      },
+      "todos": {
+        "type": "updateTodoInput",
+        "isList": true,
+        "args": {
+          "filter": {
+            "type": "JSON"
+          },
+          "sort": {
+            "type": "[String]"
+          },
+          "pageNumber": {
+            "type": "Int"
+          },
+          "pageSize": {
+            "type": "Int"
+          }
+        }
+      }
+    },
+    "updateCategoryValuesInput": {
+      "name": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "updateCategoryQueryInput": {
+      "values": {
+        "type": "updateCategoryValuesInput",
+        "isList": false
+      },
+      "where": {
+        "type": "JSON",
+        "isScalar": true,
+        "required": true
+      }
+    },
+    "updateCategoriesWithQueryInput": {
+      "updateQueries": {
+        "type": "updateCategoryQueryInput",
+        "isList": true
+      }
+    },
+    "deleteCategoryInput": {
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": true
+      },
+      "todos": {
+        "type": "deleteTodoInput",
+        "required": false,
+        "isList": true,
+        "args": {
+          "filter": {
+            "type": "JSON"
+          },
+          "sort": {
+            "type": "[String]"
+          },
+          "pageNumber": {
+            "type": "Int"
+          },
+          "pageSize": {
+            "type": "Int"
+          }
+        }
+      }
+    },
+    "deleteCategoriesWithQueryInput": {
+      "deleteQueries": {
+        "type": "JSON",
+        "isScalar": true,
+        "isList": true
+      }
+    }
+  },
+  "queries": {
+    "typeUpdate": {
+      "type": "typeUpdate",
+      "isList": false,
+      "args": {
+        "code": {
+          "type": "String",
+          "required": true,
+          "isScalar": true
+        }
+      }
+    },
+    "typeUpdates": {
+      "type": "typeUpdateCursorResult",
+      "isList": false,
+      "args": {
+        "filter": {
+          "type": "JSON"
+        },
+        "sort": {
+          "type": "[String]"
+        },
+        "pageNumber": {
+          "type": "Int"
+        },
+        "pageSize": {
+          "type": "Int"
+        }
+      }
+    },
+    "todo": {
+      "type": "todo",
+      "isList": false,
+      "args": {
+        "Id": {
+          "type": "String",
+          "required": true,
+          "isScalar": true
+        }
+      }
+    },
+    "todos": {
+      "type": "todoCursorResult",
+      "isList": false,
+      "args": {
+        "filter": {
+          "type": "JSON"
+        },
+        "sort": {
+          "type": "[String]"
+        },
+        "pageNumber": {
+          "type": "Int"
+        },
+        "pageSize": {
+          "type": "Int"
+        }
+      }
+    },
+    "category": {
+      "type": "category",
+      "isList": false,
+      "args": {
+        "id": {
+          "type": "String",
+          "required": true,
+          "isScalar": true
+        }
+      }
+    },
+    "categories": {
+      "type": "categoryCursorResult",
+      "isList": false,
+      "args": {
+        "filter": {
+          "type": "JSON"
+        },
+        "sort": {
+          "type": "[String]"
+        },
+        "pageNumber": {
+          "type": "Int"
+        },
+        "pageSize": {
+          "type": "Int"
+        }
+      }
+    }
+  },
+  "mutations": {
+    "createTypeUpdate": {
+      "type": "createTypeUpdatePayload",
+      "args": {
+        "input": {
+          "type": "createTypeUpdateInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "updateTypeUpdate": {
+      "type": "updateTypeUpdatePayload",
+      "args": {
+        "input": {
+          "type": "updateTypeUpdateInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "updateTypeUpdatesWithQuery": {
+      "type": "updateTypeUpdatesWithQueryPayload",
+      "args": {
+        "input": {
+          "type": "updateTypeUpdatesWithQueryInput",
+          "required": true
+        }
+      }
+    },
+    "deleteTypeUpdate": {
+      "type": "deleteTypeUpdatePayload",
+      "args": {
+        "input": {
+          "type": "deleteTypeUpdateInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "deleteTypeUpdatesWithQuery": {
+      "type": "deleteTypeUpdatesWithQueryPayload",
+      "args": {
+        "input": {
+          "type": "deleteTypeUpdatesWithQueryInput",
+          "required": true
+        }
+      }
+    },
+    "createTodo": {
+      "type": "createTodoPayload",
+      "args": {
+        "input": {
+          "type": "createTodoInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "updateTodo": {
+      "type": "updateTodoPayload",
+      "args": {
+        "input": {
+          "type": "updateTodoInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "updateTodosWithQuery": {
+      "type": "updateTodosWithQueryPayload",
+      "args": {
+        "input": {
+          "type": "updateTodosWithQueryInput",
+          "required": true
+        }
+      }
+    },
+    "deleteTodo": {
+      "type": "deleteTodoPayload",
+      "args": {
+        "input": {
+          "type": "deleteTodoInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "deleteTodosWithQuery": {
+      "type": "deleteTodosWithQueryPayload",
+      "args": {
+        "input": {
+          "type": "deleteTodosWithQueryInput",
+          "required": true
+        }
+      }
+    },
+    "createCategory": {
+      "type": "createCategoryPayload",
+      "args": {
+        "input": {
+          "type": "createCategoryInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "updateCategory": {
+      "type": "updateCategoryPayload",
+      "args": {
+        "input": {
+          "type": "updateCategoryInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "updateCategoriesWithQuery": {
+      "type": "updateCategoriesWithQueryPayload",
+      "args": {
+        "input": {
+          "type": "updateCategoriesWithQueryInput",
+          "required": true
+        }
+      }
+    },
+    "deleteCategory": {
+      "type": "deleteCategoryPayload",
+      "args": {
+        "input": {
+          "type": "deleteCategoryInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "deleteCategoriesWithQuery": {
+      "type": "deleteCategoriesWithQueryPayload",
+      "args": {
+        "input": {
+          "type": "deleteCategoriesWithQueryInput",
+          "required": true
+        }
+      }
+    }
+  }
+}

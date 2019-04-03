@@ -1,5 +1,5 @@
 /* Copyright (C) 2018 TeselaGen Biotechnology, Inc. */
-import { parse } from "pg-connection-string";
+const { parse } = require("pg-connection-string");
 const dbName = process.env.DB_NAME || "echo";
 const host = process.env.DB_HOST || "localhost";
 const user = process.env.DB_USER || "echo";
@@ -43,4 +43,4 @@ if (DATABASE_URL) {
   dbConfig.app.connection = dbUrl;
 }
 
-export default dbConfig;
+module.exports = dbConfig;

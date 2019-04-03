@@ -1,0 +1,319 @@
+{
+  "TypeUpdate": {
+    "attributes": {
+      "code": {
+        "name": "code",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": true,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": false,
+        "autoIncrement": false,
+        "columnName": "code"
+      },
+      "lastUpdated": {
+        "name": "lastUpdated",
+        "dataType": "Timestamp",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "lastUpdated"
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "createdAt",
+        "timestamp": "created"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "updatedAt",
+        "timestamp": "modified"
+      },
+      "cid": {
+        "name": "cid",
+        "dataType": "VARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "500",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": true,
+        "columnName": "cid"
+      }
+    },
+    "primaryKeyField": "code",
+    "indexes": [],
+    "modelName": "typeUpdate",
+    "tableName": "typeUpdate",
+    "modelAttributes": {
+      "code": true,
+      "lastUpdated": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true
+    },
+    "columnNames": {
+      "code": true,
+      "lastUpdated": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true
+    }
+  },
+  "Todo": {
+    "tableName": "todo",
+    "attributes": {
+      "Description": {
+        "name": "description",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "4000",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "description"
+      },
+      "Id": {
+        "name": "id",
+        "dataType": "NUMERIC",
+        "isPrimaryKey": true,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "comment": "This is the unique identifier, obviously",
+        "nullable": false,
+        "autoIncrement": true,
+        "columnName": "id"
+      },
+      "Name": {
+        "name": "name",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "name"
+      },
+      "TodoCategory_id": {
+        "name": "todoCategoryId",
+        "dataType": "NUMERIC",
+        "isPrimaryKey": false,
+        "isForeignKey": true,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "referenceName": "Category",
+        "referenceKey": "id",
+        "referenceIdentifying": false,
+        "referenceIsPlural": true,
+        "columnName": "todoCategoryId",
+        "fkName": "todo_todoCategory_fk",
+        "relAttrName": "todoCategory"
+      },
+      "Status": {
+        "name": "status",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "status"
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "createdAt",
+        "timestamp": "created"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "updatedAt",
+        "timestamp": "modified"
+      },
+      "cid": {
+        "name": "cid",
+        "dataType": "VARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "500",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": true,
+        "columnName": "cid"
+      }
+    },
+    "associations": [],
+    "primaryKeyField": "Id",
+    "indexes": [
+      {
+        "attributes": [
+          "TodoCategory_id"
+        ],
+        "name": "todo_todoCategory_ix",
+        "columns": [
+          "todoCategoryId"
+        ]
+      }
+    ],
+    "modelName": "todo",
+    "modelAttributes": {
+      "description": true,
+      "id": true,
+      "name": true,
+      "todoCategoryId": true,
+      "status": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true,
+      "todoCategory": true
+    },
+    "columnNames": {
+      "description": true,
+      "id": true,
+      "name": true,
+      "todoCategoryId": true,
+      "status": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true
+    }
+  },
+  "Category": {
+    "tableName": "category",
+    "attributes": {
+      "id": {
+        "name": "id",
+        "dataType": "NUMERIC",
+        "isPrimaryKey": true,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": false,
+        "autoIncrement": true,
+        "columnName": "id"
+      },
+      "Name": {
+        "name": "name",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "name"
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "createdAt",
+        "timestamp": "created"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "updatedAt",
+        "timestamp": "modified"
+      },
+      "cid": {
+        "name": "cid",
+        "dataType": "VARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "500",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": true,
+        "columnName": "cid"
+      }
+    },
+    "associations": [
+      {
+        "isPlural": true,
+        "name": "todos",
+        "referenceName": "Todo",
+        "referenceKey": "TodoCategory_id"
+      }
+    ],
+    "primaryKeyField": "id",
+    "indexes": [],
+    "modelName": "category",
+    "modelAttributes": {
+      "id": true,
+      "name": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true,
+      "todos": true,
+      "todosCursor": true
+    },
+    "columnNames": {
+      "id": true,
+      "name": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true
+    }
+  }
+}

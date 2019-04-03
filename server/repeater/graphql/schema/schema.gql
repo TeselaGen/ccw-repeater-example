@@ -1,0 +1,325 @@
+ scalar JSON
+ scalar Date
+ scalar Number
+
+ type typeUpdate {
+  code: String!
+  lastUpdated: Date
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+ # Server generated property that indicates the last time this attribute was fetched 
+  lastFetched: Date
+ }
+
+ type typeUpdateCursorResult {
+  results: [typeUpdate]
+  filter: JSON
+  sort: [String]
+  pageNumber: Int
+  pageSize: Int
+  totalResults: Int
+  lastFetched: Date
+  typeUpdates: [typeUpdate]
+ }
+
+ type createTypeUpdatePayload {
+  createdItemsCursor: typeUpdateCursorResult
+ }
+
+ type updateTypeUpdatePayload {
+  updatedItemsCursor: typeUpdateCursorResult
+ }
+
+ type updateTypeUpdatesWithQueryPayload {
+  updatedItemsCursor: typeUpdateCursorResult
+ }
+
+ type deleteTypeUpdatePayload {
+  deletedCount: Int
+  typeUpdates: [typeUpdate]
+ }
+
+ type deleteTypeUpdatesWithQueryPayload {
+  deletedCount: Int
+  typeUpdates: [typeUpdate]
+ }
+
+ type todo {
+  description: String
+ # This is the unique identifier, obviously 
+  id: String!
+  name: String
+ # Reference key for todoCategory 
+  todoCategoryId: String
+  todoCategory: category
+  status: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+ # Server generated property that indicates the last time this attribute was fetched 
+  lastFetched: Date
+ }
+
+ type todoCursorResult {
+  results: [todo]
+  filter: JSON
+  sort: [String]
+  pageNumber: Int
+  pageSize: Int
+  totalResults: Int
+  lastFetched: Date
+  typeUpdates: [typeUpdate]
+ }
+
+ type createTodoPayload {
+  createdItemsCursor: todoCursorResult
+ }
+
+ type updateTodoPayload {
+  updatedItemsCursor: todoCursorResult
+ }
+
+ type updateTodosWithQueryPayload {
+  updatedItemsCursor: todoCursorResult
+ }
+
+ type deleteTodoPayload {
+  deletedCount: Int
+  typeUpdates: [typeUpdate]
+ }
+
+ type deleteTodosWithQueryPayload {
+  deletedCount: Int
+  typeUpdates: [typeUpdate]
+ }
+
+ type category {
+  id: String!
+  name: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+ # Server generated property that indicates the last time this attribute was fetched 
+  lastFetched: Date
+  todos(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): [todo]
+ # Returns a paginated cursor result of todos instead of an Array 
+  todosCursor(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): todoCursorResult
+ }
+
+ type categoryCursorResult {
+  results: [category]
+  filter: JSON
+  sort: [String]
+  pageNumber: Int
+  pageSize: Int
+  totalResults: Int
+  lastFetched: Date
+  typeUpdates: [typeUpdate]
+ }
+
+ type createCategoryPayload {
+  createdItemsCursor: categoryCursorResult
+ }
+
+ type updateCategoryPayload {
+  updatedItemsCursor: categoryCursorResult
+ }
+
+ type updateCategoriesWithQueryPayload {
+  updatedItemsCursor: categoryCursorResult
+ }
+
+ type deleteCategoryPayload {
+  deletedCount: Int
+  typeUpdates: [typeUpdate]
+ }
+
+ type deleteCategoriesWithQueryPayload {
+  deletedCount: Int
+  typeUpdates: [typeUpdate]
+ }
+
+ input createTypeUpdateInput {
+  code: String
+  lastUpdated: Date
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input bulkCreatetypeUpdatesInput {
+  createItems: [createTypeUpdateInput]
+ }
+
+ input updateTypeUpdateInput {
+  code: String!
+  lastUpdated: Date
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input updateTypeUpdateValuesInput {
+  lastUpdated: Date
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input updateTypeUpdateQueryInput {
+  values: updateTypeUpdateValuesInput
+  where: JSON!
+ }
+
+ input updateTypeUpdatesWithQueryInput {
+  updateQueries: [updateTypeUpdateQueryInput]
+ }
+
+ input deleteTypeUpdateInput {
+  code: String!
+ }
+
+ input deleteTypeUpdatesWithQueryInput {
+  deleteQueries: [JSON]
+ }
+
+ input createTodoInput {
+  description: String
+  id: String
+  name: String
+  todoCategoryId: String
+  todoCategory: createCategoryInput
+  status: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input bulkCreatetodosInput {
+  createItems: [createTodoInput]
+ }
+
+ input updateTodoInput {
+  description: String
+  id: String!
+  name: String
+  todoCategoryId: String
+  todoCategory: updateCategoryInput
+  status: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input updateTodoValuesInput {
+  description: String
+  name: String
+  todoCategoryId: String
+  status: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input updateTodoQueryInput {
+  values: updateTodoValuesInput
+  where: JSON!
+ }
+
+ input updateTodosWithQueryInput {
+  updateQueries: [updateTodoQueryInput]
+ }
+
+ input deleteTodoInput {
+  id: String!
+  todoCategory: deleteCategoryInput
+ }
+
+ input deleteTodosWithQueryInput {
+  deleteQueries: [JSON]
+ }
+
+ input createCategoryInput {
+  id: String
+  name: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+  todos: [createTodoInput]
+ }
+
+ input bulkCreatecategoriesInput {
+  createItems: [createCategoryInput]
+ }
+
+ input updateCategoryInput {
+  id: String!
+  name: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+  todos: [updateTodoInput]
+ }
+
+ input updateCategoryValuesInput {
+  name: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input updateCategoryQueryInput {
+  values: updateCategoryValuesInput
+  where: JSON!
+ }
+
+ input updateCategoriesWithQueryInput {
+  updateQueries: [updateCategoryQueryInput]
+ }
+
+ input deleteCategoryInput {
+  id: String!
+  todos: [deleteTodoInput]
+ }
+
+ input deleteCategoriesWithQueryInput {
+  deleteQueries: [JSON]
+ }
+
+
+ type Query {
+  typeUpdate(code: String!): typeUpdate
+  typeUpdates(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): typeUpdateCursorResult
+  todo(Id: String!): todo
+  todos(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): todoCursorResult
+  category(id: String!): category
+  categories(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): categoryCursorResult
+ }
+
+ type Mutation {
+  createTypeUpdate(input: [createTypeUpdateInput]): createTypeUpdatePayload
+  updateTypeUpdate(input: [updateTypeUpdateInput]): updateTypeUpdatePayload
+  updateTypeUpdatesWithQuery(input: updateTypeUpdatesWithQueryInput!): updateTypeUpdatesWithQueryPayload
+  deleteTypeUpdate(input: [deleteTypeUpdateInput]): deleteTypeUpdatePayload
+  deleteTypeUpdatesWithQuery(input: deleteTypeUpdatesWithQueryInput!): deleteTypeUpdatesWithQueryPayload
+  createTodo(input: [createTodoInput]): createTodoPayload
+  updateTodo(input: [updateTodoInput]): updateTodoPayload
+  updateTodosWithQuery(input: updateTodosWithQueryInput!): updateTodosWithQueryPayload
+  deleteTodo(input: [deleteTodoInput]): deleteTodoPayload
+  deleteTodosWithQuery(input: deleteTodosWithQueryInput!): deleteTodosWithQueryPayload
+  createCategory(input: [createCategoryInput]): createCategoryPayload
+  updateCategory(input: [updateCategoryInput]): updateCategoryPayload
+  updateCategoriesWithQuery(input: updateCategoriesWithQueryInput!): updateCategoriesWithQueryPayload
+  deleteCategory(input: [deleteCategoryInput]): deleteCategoryPayload
+  deleteCategoriesWithQuery(input: deleteCategoriesWithQueryInput!): deleteCategoriesWithQueryPayload
+ }

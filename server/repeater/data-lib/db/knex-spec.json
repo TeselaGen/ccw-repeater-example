@@ -1,0 +1,259 @@
+{
+  "tables": [
+    {
+      "schema": "echo",
+      "tableName": "typeUpdate",
+      "columns": [
+        {
+          "type": "string",
+          "typeArgs": [
+            "code",
+            400
+          ],
+          "name": "code",
+          "primaryKey": true,
+          "increments": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "lastUpdated"
+          ],
+          "name": "lastUpdated",
+          "primaryKey": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "createdAt"
+          ],
+          "name": "createdAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "updatedAt"
+          ],
+          "name": "updatedAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "cid",
+            500
+          ],
+          "name": "cid",
+          "primaryKey": false,
+          "unique": true
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "schema": "echo",
+      "tableName": "todo",
+      "columns": [
+        {
+          "type": "string",
+          "typeArgs": [
+            "description",
+            4000
+          ],
+          "name": "description",
+          "primaryKey": false
+        },
+        {
+          "type": "specificType",
+          "typeArgs": [
+            "id",
+            "NUMERIC"
+          ],
+          "name": "id",
+          "primaryKey": true,
+          "increments": true
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "name",
+            400
+          ],
+          "name": "name",
+          "primaryKey": false
+        },
+        {
+          "type": "integer",
+          "typeArgs": [
+            "todoCategoryId"
+          ],
+          "name": "todoCategoryId",
+          "primaryKey": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "status",
+            400
+          ],
+          "name": "status",
+          "primaryKey": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "createdAt"
+          ],
+          "name": "createdAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "updatedAt"
+          ],
+          "name": "updatedAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "cid",
+            500
+          ],
+          "name": "cid",
+          "primaryKey": false,
+          "unique": true
+        }
+      ],
+      "indexes": [
+        {
+          "indexName": "todo_todoCategory_ix",
+          "columns": [
+            "todoCategoryId"
+          ]
+        }
+      ]
+    },
+    {
+      "schema": "echo",
+      "tableName": "category",
+      "columns": [
+        {
+          "type": "specificType",
+          "typeArgs": [
+            "id",
+            "NUMERIC"
+          ],
+          "name": "id",
+          "primaryKey": true,
+          "increments": true
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "name",
+            400
+          ],
+          "name": "name",
+          "primaryKey": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "createdAt"
+          ],
+          "name": "createdAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "updatedAt"
+          ],
+          "name": "updatedAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "cid",
+            500
+          ],
+          "name": "cid",
+          "primaryKey": false,
+          "unique": true
+        }
+      ],
+      "indexes": []
+    }
+  ],
+  "relationships": [
+    {
+      "tableName": "todo",
+      "columnName": "todoCategoryId",
+      "referenceTableName": "category",
+      "referenceColumnName": "id",
+      "fkName": "todo_todoCategory_fk",
+      "onUpdate": "",
+      "onDelete": "SET NULL",
+      "schema": "echo"
+    }
+  ],
+  "constraints": [],
+  "cleanSchema": [
+    {
+      "cmd": "DROP SCHEMA IF EXISTS ?? CASCADE",
+      "bindings": [
+        "echo"
+      ]
+    },
+    {
+      "cmd": "CREATE SCHEMA ?? ",
+      "bindings": [
+        "echo"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "cmd": "\nCREATE FUNCTION \"echo\".\"tcf_todo\"()\n    RETURNS trigger\n    LANGUAGE 'plpgsql'\n    NOT LEAKPROOF \nAS $BODY$\nBEGIN\n    UPDATE \"typeUpdate\" \n    SET \"lastUpdated\" = current_timestamp\n    WHERE \"code\" = 'todo';\n    RETURN NEW;\nEND;\n$BODY$",
+      "bindings": []
+    },
+    {
+      "cmd": "\nCREATE FUNCTION \"echo\".\"tcf_category\"()\n    RETURNS trigger\n    LANGUAGE 'plpgsql'\n    NOT LEAKPROOF \nAS $BODY$\nBEGIN\n    UPDATE \"typeUpdate\" \n    SET \"lastUpdated\" = current_timestamp\n    WHERE \"code\" = 'category';\n    RETURN NEW;\nEND;\n$BODY$",
+      "bindings": []
+    }
+  ],
+  "triggers": [
+    {
+      "cmd": "\nCREATE TRIGGER \"tcu_todo\"\nAFTER INSERT OR DELETE OR UPDATE \nON \"echo\".\"todo\"\nFOR EACH STATEMENT\nEXECUTE PROCEDURE \"echo\".\"tcf_todo\"()\n                ",
+      "bindings": []
+    },
+    {
+      "cmd": "\nCREATE TRIGGER \"tcu_category\"\nAFTER INSERT OR DELETE OR UPDATE \nON \"echo\".\"category\"\nFOR EACH STATEMENT\nEXECUTE PROCEDURE \"echo\".\"tcf_category\"()\n                ",
+      "bindings": []
+    }
+  ],
+  "initSql": [
+    {
+      "cmd": "INSERT INTO \"echo\".\"typeUpdate\" (\"code\", \"lastUpdated\") VALUES (?, current_timestamp)",
+      "bindings": [
+        "todo"
+      ]
+    },
+    {
+      "cmd": "INSERT INTO \"echo\".\"typeUpdate\" (\"code\", \"lastUpdated\") VALUES (?, current_timestamp)",
+      "bindings": [
+        "category"
+      ]
+    }
+  ]
+}

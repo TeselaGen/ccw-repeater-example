@@ -69,6 +69,19 @@
 <domain>226ADBAC-7E5D-133A-D68E-D41F1758FB6C</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Status" id="37ABFDE8-73B6-7DAE-5B28-C1E6A2CAE2AD">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-03 23:43:13 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>E22467A2-A793-E4C5-0C65-F663AC065B95</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="D09C4B2A-8134-139B-AF7E-B56D1A582440" name="Todo PK">

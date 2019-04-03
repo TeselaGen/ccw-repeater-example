@@ -1,4 +1,4 @@
-// Copyright (C) 2019 TeselaGen Biotechnology, Inc.
+//// Copyright (C) 2019 TeselaGen Biotechnology, Inc.
 
 /* eslint-disable no-console */
 const path = require("path");
@@ -42,8 +42,8 @@ module.exports = function(configName) {
       dataLibPath: path.resolve(__dirname, "../data-lib"),
       enableMockResolvers: false,
       enableModelResolvers: true
-    },
-    codeGenerationPassword: "joi12o3bjk123npj1"
+    }
+    //, codeGenerationPassword: "joi12o3bjk123npj1"
   };
 
   // Environment variables overrides
