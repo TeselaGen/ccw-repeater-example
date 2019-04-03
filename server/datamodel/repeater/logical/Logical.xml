@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="BAD482EB-1C3D-AF2B-CAD9-B53C836BC18B" mainViewID="FBBF757F-988F-1877-C3AF-32E8632D472A">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-03 18:24:00 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

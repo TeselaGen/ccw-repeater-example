@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="200B7B82-C4A8-CC82-439E-14ACCEC1B411" name="Category" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="BAD482EB-1C3D-AF2B-CAD9-B53C836BC18B" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Entity" objectID="C30E57EE-E986-D2B9-F900-C96ACCFE4E8E" name="Todo" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Entity" propertyParentId="BAD482EB-1C3D-AF2B-CAD9-B53C836BC18B" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Relation" objectID="E100D412-FCEF-AC11-6788-D3F3FE5935E0" name="Category-hasMany-Todos" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.logical.Relation" propertyParentId="BAD482EB-1C3D-AF2B-CAD9-B53C836BC18B" propertySourceId="200B7B82-C4A8-CC82-439E-14ACCEC1B411" propertyTargetId="C30E57EE-E986-D2B9-F900-C96ACCFE4E8E"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>

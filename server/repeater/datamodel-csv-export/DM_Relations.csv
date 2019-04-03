@@ -1,0 +1,2 @@
+Relation_Name,ModelID,Num_ModelID,ObjectID,NumOID,ImportID,Source_Entity_Name,Target_Entity_Name,Source_Label,Target_Label,SourceTo_Target_Cardinality,TargetTo_Source_Cardinality,Source_Optional,Target_Optional,Dominant_Role,Identifying,Source_ID,Num_Source_ID,Target_ID,Num_Target_ID,Number_Of_Attributes
+"Category-hasMany-Todos",BAD482EB-1C3D-AF2B-CAD9-B53C836BC18B,101,E100D412-FCEF-AC11-6788-D3F3FE5935E0,112,,"Category","Todo",,,"*","1",Y,Y,"None",N,200B7B82-C4A8-CC82-439E-14ACCEC1B411,102,C30E57EE-E986-D2B9-F900-C96ACCFE4E8E,103,1,

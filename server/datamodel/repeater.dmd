@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="repeater" id="878D9B25-7D22-4FB9-3D1B-75F865F4A1B3" version="3.5">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-03 18:24:00 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>878D9B25-7D22-4FB9-3D1B-75F865F4A1B3</designId>
+</OSDM_Design>

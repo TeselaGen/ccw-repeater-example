@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="ED8EAC86-114A-C1F9-9A68-03AD269A3CBE">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-03 18:24:00 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>
