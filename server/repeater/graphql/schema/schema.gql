@@ -50,10 +50,10 @@
  # This is the unique identifier, obviously 
   id: String!
   name: String
+  status: String
  # Reference key for todoCategory 
   todoCategoryId: String
   todoCategory: category
-  status: String
   createdAt: Date
   updatedAt: Date
   cid: String
@@ -90,6 +90,55 @@
  }
 
  type deleteTodosWithQueryPayload {
+  deletedCount: Int
+  typeUpdates: [typeUpdate]
+ }
+
+ type user {
+  email: String
+  firstName: String
+  id: String!
+  lastName: String
+  username: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+ # Server generated property that indicates the last time this attribute was fetched 
+  lastFetched: Date
+  userLogins(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): [userLogin]
+ # Returns a paginated cursor result of userLogins instead of an Array 
+  userLoginsCursor(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): userLoginCursorResult
+ }
+
+ type userCursorResult {
+  results: [user]
+  filter: JSON
+  sort: [String]
+  pageNumber: Int
+  pageSize: Int
+  totalResults: Int
+  lastFetched: Date
+  typeUpdates: [typeUpdate]
+ }
+
+ type createUserPayload {
+  createdItemsCursor: userCursorResult
+ }
+
+ type updateUserPayload {
+  updatedItemsCursor: userCursorResult
+ }
+
+ type updateUsersWithQueryPayload {
+  updatedItemsCursor: userCursorResult
+ }
+
+ type deleteUserPayload {
+  deletedCount: Int
+  typeUpdates: [typeUpdate]
+ }
+
+ type deleteUsersWithQueryPayload {
   deletedCount: Int
   typeUpdates: [typeUpdate]
  }
@@ -136,6 +185,56 @@
  }
 
  type deleteCategoriesWithQueryPayload {
+  deletedCount: Int
+  typeUpdates: [typeUpdate]
+ }
+
+ type userLogin {
+  loginName: String!
+  loginPassword: String
+  token: String
+  loginType: String
+ # Reference key for user 
+  userId: String
+  user: user
+ # primary key 
+  id: String!
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+ # Server generated property that indicates the last time this attribute was fetched 
+  lastFetched: Date
+ }
+
+ type userLoginCursorResult {
+  results: [userLogin]
+  filter: JSON
+  sort: [String]
+  pageNumber: Int
+  pageSize: Int
+  totalResults: Int
+  lastFetched: Date
+  typeUpdates: [typeUpdate]
+ }
+
+ type createUserLoginPayload {
+  createdItemsCursor: userLoginCursorResult
+ }
+
+ type updateUserLoginPayload {
+  updatedItemsCursor: userLoginCursorResult
+ }
+
+ type updateUserLoginsWithQueryPayload {
+  updatedItemsCursor: userLoginCursorResult
+ }
+
+ type deleteUserLoginPayload {
+  deletedCount: Int
+  typeUpdates: [typeUpdate]
+ }
+
+ type deleteUserLoginsWithQueryPayload {
   deletedCount: Int
   typeUpdates: [typeUpdate]
  }
@@ -191,9 +290,9 @@
   description: String
   id: String
   name: String
+  status: String
   todoCategoryId: String
   todoCategory: createCategoryInput
-  status: String
   createdAt: Date
   updatedAt: Date
   cid: String
@@ -208,9 +307,9 @@
   description: String
   id: String!
   name: String
+  status: String
   todoCategoryId: String
   todoCategory: updateCategoryInput
-  status: String
   createdAt: Date
   updatedAt: Date
   cid: String
@@ -220,8 +319,8 @@
  input updateTodoValuesInput {
   description: String
   name: String
-  todoCategoryId: String
   status: String
+  todoCategoryId: String
   createdAt: Date
   updatedAt: Date
   cid: String
@@ -243,6 +342,65 @@
  }
 
  input deleteTodosWithQueryInput {
+  deleteQueries: [JSON]
+ }
+
+ input createUserInput {
+  email: String
+  firstName: String
+  id: String
+  lastName: String
+  username: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+  userLogins: [createUserLoginInput]
+ }
+
+ input bulkCreateusersInput {
+  createItems: [createUserInput]
+ }
+
+ input updateUserInput {
+  email: String
+  firstName: String
+  id: String!
+  lastName: String
+  username: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+  userLogins: [updateUserLoginInput]
+ }
+
+ input updateUserValuesInput {
+  email: String
+  firstName: String
+  lastName: String
+  username: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input updateUserQueryInput {
+  values: updateUserValuesInput
+  where: JSON!
+ }
+
+ input updateUsersWithQueryInput {
+  updateQueries: [updateUserQueryInput]
+ }
+
+ input deleteUserInput {
+  id: String!
+  userLogins: [deleteUserLoginInput]
+ }
+
+ input deleteUsersWithQueryInput {
   deleteQueries: [JSON]
  }
 
@@ -296,14 +454,80 @@
   deleteQueries: [JSON]
  }
 
+ input createUserLoginInput {
+  loginName: String!
+  loginPassword: String
+  token: String
+  loginType: String
+  userId: String
+  user: createUserInput
+  id: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input bulkCreateuserLoginsInput {
+  createItems: [createUserLoginInput]
+ }
+
+ input updateUserLoginInput {
+  loginName: String
+  loginPassword: String
+  token: String
+  loginType: String
+  userId: String
+  user: updateUserInput
+  id: String!
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input updateUserLoginValuesInput {
+  loginName: String
+  loginPassword: String
+  token: String
+  loginType: String
+  userId: String
+  createdAt: Date
+  updatedAt: Date
+  cid: String
+  lastFetched: Date
+ }
+
+ input updateUserLoginQueryInput {
+  values: updateUserLoginValuesInput
+  where: JSON!
+ }
+
+ input updateUserLoginsWithQueryInput {
+  updateQueries: [updateUserLoginQueryInput]
+ }
+
+ input deleteUserLoginInput {
+  user: deleteUserInput
+  id: String!
+ }
+
+ input deleteUserLoginsWithQueryInput {
+  deleteQueries: [JSON]
+ }
+
 
  type Query {
   typeUpdate(code: String!): typeUpdate
   typeUpdates(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): typeUpdateCursorResult
   todo(id: String!): todo
   todos(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): todoCursorResult
+  user(id: String!): user
+  users(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): userCursorResult
   category(id: String!): category
   categories(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): categoryCursorResult
+  userLogin(id: String!): userLogin
+  userLogins(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): userLoginCursorResult
  }
 
  type Mutation {
@@ -317,9 +541,19 @@
   updateTodosWithQuery(input: updateTodosWithQueryInput!): updateTodosWithQueryPayload
   deleteTodo(input: [deleteTodoInput]): deleteTodoPayload
   deleteTodosWithQuery(input: deleteTodosWithQueryInput!): deleteTodosWithQueryPayload
+  createUser(input: [createUserInput]): createUserPayload
+  updateUser(input: [updateUserInput]): updateUserPayload
+  updateUsersWithQuery(input: updateUsersWithQueryInput!): updateUsersWithQueryPayload
+  deleteUser(input: [deleteUserInput]): deleteUserPayload
+  deleteUsersWithQuery(input: deleteUsersWithQueryInput!): deleteUsersWithQueryPayload
   createCategory(input: [createCategoryInput]): createCategoryPayload
   updateCategory(input: [updateCategoryInput]): updateCategoryPayload
   updateCategoriesWithQuery(input: updateCategoriesWithQueryInput!): updateCategoriesWithQueryPayload
   deleteCategory(input: [deleteCategoryInput]): deleteCategoryPayload
   deleteCategoriesWithQuery(input: deleteCategoriesWithQueryInput!): deleteCategoriesWithQueryPayload
+  createUserLogin(input: [createUserLoginInput]): createUserLoginPayload
+  updateUserLogin(input: [updateUserLoginInput]): updateUserLoginPayload
+  updateUserLoginsWithQuery(input: updateUserLoginsWithQueryInput!): updateUserLoginsWithQueryPayload
+  deleteUserLogin(input: [deleteUserLoginInput]): deleteUserLoginPayload
+  deleteUserLoginsWithQuery(input: deleteUserLoginsWithQueryInput!): deleteUserLoginsWithQueryPayload
  }

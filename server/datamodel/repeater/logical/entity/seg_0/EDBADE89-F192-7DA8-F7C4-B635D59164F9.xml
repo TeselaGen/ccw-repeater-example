@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="EDBADE89-F192-7DA8-F7C4-B635D59164F9" name="User">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:50:55 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="F808B80B-161E-9DF1-1B33-89DF79A58B35">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:51:06 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>226ADBAC-7E5D-133A-D68E-D41F1758FB6C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="037C8544-5419-58EE-4479-27D2BD9686BD">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:51:19 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>E22467A2-A793-E4C5-0C65-F663AC065B95</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="username" id="6BCCF568-EB81-BEF8-1914-19DFC02EE75B">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:51:45 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>E22467A2-A793-E4C5-0C65-F663AC065B95</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="firstName" id="38FC5EBA-3C69-EDFF-2E95-5EF051B13FD1">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:52:01 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>E22467A2-A793-E4C5-0C65-F663AC065B95</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="lastName" id="28396107-4D68-46F3-0A40-9EED921908FC">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:52:09 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>E22467A2-A793-E4C5-0C65-F663AC065B95</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="13903639-3806-D717-135C-EFE5473D639E" name="User PK">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:55:47 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F808B80B-161E-9DF1-1B33-89DF79A58B35</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

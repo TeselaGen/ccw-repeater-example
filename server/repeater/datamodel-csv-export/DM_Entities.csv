@@ -1,3 +1,5 @@
 Entity_Name,ObjectID,NumOID,ImportID,ModelID,Num_ModelID,Structured_Type_ID,Num_Structured_Type_ID,Structured_Type_Name,Number_Data_Elements,Classification_Type,Allow_Type_Substitution,Min_Volume,Expected_Volume,Max_Volume,Growth_Rate_Percents,Growth_Rate_Interval,Normal_Form,Temporary_Object_Scope,Adequately_Normalized,Substitution_Parent,Num_Substitution_Parent,Synonyms,Synonym_To_Display,Preferred_Abbreviation,SuperTypeEntity_ID,Num_SuperTypeEntity_ID,Engineering_Strategy,Owner,Entity_Source
 "Category",200B7B82-C4A8-CC82-439E-14ACCEC1B411,102,,BAD482EB-1C3D-AF2B-CAD9-B53C836BC18B,101,,,,2,,Y,0,0,9999999,0,Year,Third,,N,,,,,,,,,,,
 "Todo",C30E57EE-E986-D2B9-F900-C96ACCFE4E8E,103,,BAD482EB-1C3D-AF2B-CAD9-B53C836BC18B,101,,,,5,,Y,0,0,9999999,0,Year,Third,,N,,,,,,,,,,,
+"User",EDBADE89-F192-7DA8-F7C4-B635D59164F9,104,,BAD482EB-1C3D-AF2B-CAD9-B53C836BC18B,101,,,,5,,Y,0,0,9999999,0,Year,Third,,N,,,,,,,,,,,
+"UserLogin",80A6262D-BDB8-B88A-41BF-A96A998FAD1C,105,,BAD482EB-1C3D-AF2B-CAD9-B53C836BC18B,101,,,,6,,Y,0,0,9999999,0,Year,Third,,N,,,,,,,,,,,

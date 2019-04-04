@@ -232,6 +232,127 @@ module.exports = function generateCoreResolver(db, DataLib, opts){
     }
 
 
+    resolvers.Query.users = function(root, { filter, sort, pageNumber, pageSize }, context, info ){
+        let dataLib = getDataLibWithContext(db, context);
+        return getResultsCursor("user","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+    }
+
+    resolvers.Query.user = function(root, args, context, info ){
+        let dataLib = getDataLibWithContext(db, context);
+        let fields = Object.keys(graphqlFields(info));
+        return dataLib.entities.user.get(args.id, fields, { root: true });
+    }
+
+    resolvers.Mutation.createUser = function( root, { input }, context, info){
+        let dataLib = getDataLibWithContext(db, context);
+        return dataLib.entities.user.create(input, undefined, { root: true })
+               .then((ids) => {
+                return Promise.resolve({ ids: ids});
+               });
+    }
+
+    resolvers.createUserPayload = {
+        createdItemsCursor: function( parent, { filter, sort, pageNumber, pageSize }, context, info){
+            let dataLib = getDataLibWithContext(db, context);
+            let pkFilter = { id: parent.ids };
+
+            filter = appendFilter(filter, "user", pkFilter);
+
+            return getResultsCursor("user","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+        }
+    }
+
+    resolvers.Mutation.updateUser = function( root, { input }, context, info){
+        let dataLib = getDataLibWithContext(db, context);
+        return dataLib.entities.user.update(input, undefined, undefined, { root: true })
+               .then((ids) => {
+                return Promise.resolve({ ids: ids});
+               });
+    }
+
+    
+
+    resolvers.updateUserPayload = {
+        updatedItemsCursor: function( parent, { filter, sort, pageNumber, pageSize }, context, info){
+            let dataLib = getDataLibWithContext(db, context);
+            let pkFilter = { id: parent.ids };
+            
+            filter = appendFilter(filter, "user", pkFilter);
+
+            return getResultsCursor("user","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+        }
+    }
+
+    resolvers.Mutation.updateUsersWithQuery = function( root, { input }, context, info){
+        let dataLib = getDataLibWithContext(db, context);
+        return dataLib.entities.user.updateQuery(input.updateQueries, undefined, { root: true })
+            .then((ids) => {
+                    return Promise.resolve({ ids: ids});
+            });
+
+    }
+    
+
+    resolvers.updateUsersWithQueryPayload = {
+        updatedItemsCursor: function( parent, { filter, sort, pageNumber, pageSize }, context, info){
+            let dataLib = getDataLibWithContext(db, context);
+            let pkFilter = { id: parent.ids };
+            
+            filter = appendFilter(filter, "user", pkFilter);
+
+            return getResultsCursor("user","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+        }
+    }
+
+    resolvers.Mutation.deleteUser = function( root, { input }, context, info){
+        let dataLib = getDataLibWithContext(db, context);
+        return dataLib.entities.user.delete(input, undefined, { root: true })
+               .then((count) => {
+                return getDeleteResult(count, info);
+               });
+    }
+
+    resolvers.Mutation.deleteUsersWithQuery = function( root, { input }, context, info){
+        let dataLib = getDataLibWithContext(db, context);
+        return dataLib.entities.user.deleteQuery(input.deleteQueries, undefined, { root: true })
+            .then((count) => {
+                return getDeleteResult(count, info, dataLib);
+            });
+    }
+    
+
+    nestedResolvers = {
+        userLogins: function(user, { filter, sort, pageNumber, pageSize }, context, info ){
+            let dataLib = getDataLibWithContext(db, context);
+            if(user.id != null){
+                let fields = Object.keys(graphqlFields(info));
+                let fkFilter = { userId: user.id };
+                
+                filter = appendFilter(filter, "userLogin", fkFilter);
+
+                return dataLib.entities.userLogin.query(fields, filter, sort, pageNumber, pageSize);
+            }
+            return Promise.resolve([]);
+        },
+        userLoginsCursor: function(user, { filter, sort, pageNumber, pageSize }, context, info ){
+            let dataLib = getDataLibWithContext(db, context);
+            if(user.id != null){
+                let fields = Object.keys(graphqlFields(info));
+                let fkFilter = { userId: user.id };
+                
+                filter = appendFilter(filter, "userLogin", fkFilter);
+
+                return getResultsCursor("userLogin","id", filter, sort, pageNumber, pageSize, info, dataLib);
+            }
+            return Promise.resolve(null);
+        },
+    };
+
+    if(Object.keys(nestedResolvers).length > 0){
+        resolvers.user = nestedResolvers;
+    }
+
+
     resolvers.Query.categories = function(root, { filter, sort, pageNumber, pageSize }, context, info ){
         let dataLib = getDataLibWithContext(db, context);
         return getResultsCursor("category","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
@@ -350,6 +471,115 @@ module.exports = function generateCoreResolver(db, DataLib, opts){
 
     if(Object.keys(nestedResolvers).length > 0){
         resolvers.category = nestedResolvers;
+    }
+
+
+    resolvers.Query.userLogins = function(root, { filter, sort, pageNumber, pageSize }, context, info ){
+        let dataLib = getDataLibWithContext(db, context);
+        return getResultsCursor("userLogin","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+    }
+
+    resolvers.Query.userLogin = function(root, args, context, info ){
+        let dataLib = getDataLibWithContext(db, context);
+        let fields = Object.keys(graphqlFields(info));
+        return dataLib.entities.userLogin.get(args.id, fields, { root: true });
+    }
+
+    resolvers.Mutation.createUserLogin = function( root, { input }, context, info){
+        let dataLib = getDataLibWithContext(db, context);
+        return dataLib.entities.userLogin.create(input, undefined, { root: true })
+               .then((ids) => {
+                return Promise.resolve({ ids: ids});
+               });
+    }
+
+    resolvers.createUserLoginPayload = {
+        createdItemsCursor: function( parent, { filter, sort, pageNumber, pageSize }, context, info){
+            let dataLib = getDataLibWithContext(db, context);
+            let pkFilter = { id: parent.ids };
+
+            filter = appendFilter(filter, "userLogin", pkFilter);
+
+            return getResultsCursor("userLogin","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+        }
+    }
+
+    resolvers.Mutation.updateUserLogin = function( root, { input }, context, info){
+        let dataLib = getDataLibWithContext(db, context);
+        return dataLib.entities.userLogin.update(input, undefined, undefined, { root: true })
+               .then((ids) => {
+                return Promise.resolve({ ids: ids});
+               });
+    }
+
+    
+
+    resolvers.updateUserLoginPayload = {
+        updatedItemsCursor: function( parent, { filter, sort, pageNumber, pageSize }, context, info){
+            let dataLib = getDataLibWithContext(db, context);
+            let pkFilter = { id: parent.ids };
+            
+            filter = appendFilter(filter, "userLogin", pkFilter);
+
+            return getResultsCursor("userLogin","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+        }
+    }
+
+    resolvers.Mutation.updateUserLoginsWithQuery = function( root, { input }, context, info){
+        let dataLib = getDataLibWithContext(db, context);
+        return dataLib.entities.userLogin.updateQuery(input.updateQueries, undefined, { root: true })
+            .then((ids) => {
+                    return Promise.resolve({ ids: ids});
+            });
+
+    }
+    
+
+    resolvers.updateUserLoginsWithQueryPayload = {
+        updatedItemsCursor: function( parent, { filter, sort, pageNumber, pageSize }, context, info){
+            let dataLib = getDataLibWithContext(db, context);
+            let pkFilter = { id: parent.ids };
+            
+            filter = appendFilter(filter, "userLogin", pkFilter);
+
+            return getResultsCursor("userLogin","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+        }
+    }
+
+    resolvers.Mutation.deleteUserLogin = function( root, { input }, context, info){
+        let dataLib = getDataLibWithContext(db, context);
+        return dataLib.entities.userLogin.delete(input, undefined, { root: true })
+               .then((count) => {
+                return getDeleteResult(count, info);
+               });
+    }
+
+    resolvers.Mutation.deleteUserLoginsWithQuery = function( root, { input }, context, info){
+        let dataLib = getDataLibWithContext(db, context);
+        return dataLib.entities.userLogin.deleteQuery(input.deleteQueries, undefined, { root: true })
+            .then((count) => {
+                return getDeleteResult(count, info, dataLib);
+            });
+    }
+    
+
+    nestedResolvers = {
+        user: function(userLogin, { filter, sort, pageNumber, pageSize }, context, info ){
+            let dataLib = getDataLibWithContext(db, context);
+            if(userLogin.userId != null){
+                let fields = Object.keys(graphqlFields(info));
+                let fkFilter = { id: userLogin.userId };
+                
+                filter = appendFilter(filter, "user", fkFilter);
+
+                return dataLib.entities.user.query(fields, filter, sort, pageNumber, pageSize).then(returnFirstResult);
+            }
+            return Promise.resolve(null);
+        },
+    };
+
+    if(Object.keys(nestedResolvers).length > 0){
+        resolvers.userLogin = nestedResolvers;
     }
 
     

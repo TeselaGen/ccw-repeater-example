@@ -1,7 +1,9 @@
 
 const typeUpdateEntityDef = require('./typeUpdate');
 const todoEntityDef = require('./todo');
+const userEntityDef = require('./user');
 const categoryEntityDef = require('./category');
+const userLoginEntityDef = require('./userLogin');
 
 const entityMethods = [
     "query",
@@ -122,9 +124,17 @@ function getEntityCache() {
             ...todoEntityDef,
             extensions: getDefaultExtensions(todoEntityDef)
         };
+        cache.user = {
+            ...userEntityDef,
+            extensions: getDefaultExtensions(userEntityDef)
+        };
         cache.category = {
             ...categoryEntityDef,
             extensions: getDefaultExtensions(categoryEntityDef)
+        };
+        cache.userLogin = {
+            ...userLoginEntityDef,
+            extensions: getDefaultExtensions(userLoginEntityDef)
         };
     }
     return cache;
@@ -142,9 +152,17 @@ function getExtendedEntityCache() {
             ...todoEntityDef,
             extensions: getDefaultExtensions(todoEntityDef)
         };
+        extCache.user = {
+            ...userEntityDef,
+            extensions: getDefaultExtensions(userEntityDef)
+        };
         extCache.category = {
             ...categoryEntityDef,
             extensions: getDefaultExtensions(categoryEntityDef)
+        };
+        extCache.userLogin = {
+            ...userLoginEntityDef,
+            extensions: getDefaultExtensions(userLoginEntityDef)
         };
     }
     return extCache;

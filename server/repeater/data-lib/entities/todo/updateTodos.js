@@ -52,9 +52,9 @@ async function updateTodos(updateRecords, fkFilter, trx, opts){
                     
             name: updateRecord.name,
                     
-            todoCategoryId: updateRecord.todoCategoryId,
-                    
             status: updateRecord.status,
+                    
+            todoCategoryId: updateRecord.todoCategoryId,
                     
             createdAt: updateRecord.createdAt,
                     
@@ -127,8 +127,8 @@ async function updateTodos(updateRecords, fkFilter, trx, opts){
             description: "description",
             id: "id",
             name: "name",
-            todoCategoryId: "todoCategoryId",
             status: "status",
+            todoCategoryId: "todoCategoryId",
             createdAt: "createdAt",
             updatedAt: "updatedAt",
             cid: "cid",

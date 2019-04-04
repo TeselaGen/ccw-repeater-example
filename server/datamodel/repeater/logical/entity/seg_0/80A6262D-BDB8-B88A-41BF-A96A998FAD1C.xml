@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="80A6262D-BDB8-B88A-41BF-A96A998FAD1C" name="UserLogin">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:52:51 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="D241EA82-31E1-65BF-8C74-369DC8F32530">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 22:20:41 UTC</createdTime>
+<comment>primary key</comment>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>226ADBAC-7E5D-133A-D68E-D41F1758FB6C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="loginName" id="9FA9069F-90F1-1976-559F-DA84D93075A7">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:53:03 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>E22467A2-A793-E4C5-0C65-F663AC065B95</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="loginPassword" id="B2E0C156-BB6F-76E1-6445-9D2605656448">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:53:16 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>E22467A2-A793-E4C5-0C65-F663AC065B95</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="token" id="7394702E-3538-A562-8F2B-B47183F7AA12">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:53:30 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>E22467A2-A793-E4C5-0C65-F663AC065B95</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="loginType" id="636CBAD6-4ABA-6DB9-AA35-3B21D533A2E3">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 21:57:43 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<domain>E22467A2-A793-E4C5-0C65-F663AC065B95</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="User_id" id="19122C5C-3920-04B9-3D9F-055E8DB26F15">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 22:00:38 UTC</createdTime>
+<generatorID>4586EC74-BD4F-659C-1A4F-CBAE4A0D9487</generatorID>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<referedAttribute>F808B80B-161E-9DF1-1B33-89DF79A58B35</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>226ADBAC-7E5D-133A-D68E-D41F1758FB6C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="29CB2766-DFA2-7A94-C36C-FC08A0866E4D" name="UserLogin PK">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-04 22:20:24 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D241EA82-31E1-65BF-8C74-369DC8F32530</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

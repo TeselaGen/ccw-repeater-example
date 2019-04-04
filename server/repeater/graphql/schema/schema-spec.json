@@ -126,6 +126,12 @@
         "isScalar": true,
         "isKey": false
       },
+      "status": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
       "todoCategoryId": {
         "type": "String",
         "required": false,
@@ -136,12 +142,6 @@
       "todoCategory": {
         "type": "category",
         "required": false
-      },
-      "status": {
-        "type": "String",
-        "required": false,
-        "isScalar": true,
-        "isKey": false
       },
       "createdAt": {
         "type": "Date",
@@ -222,6 +222,164 @@
       }
     },
     "deleteTodosWithQueryPayload": {
+      "deletedCount": {
+        "type": "Int",
+        "isScalar": true
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "user": {
+      "email": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "firstName": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": true
+      },
+      "lastName": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "username": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      },
+      "userLogins": {
+        "type": "userLogin",
+        "required": false,
+        "isList": true,
+        "args": {
+          "filter": {
+            "type": "JSON"
+          },
+          "sort": {
+            "type": "[String]"
+          },
+          "pageNumber": {
+            "type": "Int"
+          },
+          "pageSize": {
+            "type": "Int"
+          }
+        }
+      },
+      "userLoginsCursor": {
+        "type": "userLoginCursorResult",
+        "required": false,
+        "isCursor": true,
+        "comment": "Returns a paginated cursor result of userLogins instead of an Array",
+        "args": {
+          "filter": {
+            "type": "JSON"
+          },
+          "sort": {
+            "type": "[String]"
+          },
+          "pageNumber": {
+            "type": "Int"
+          },
+          "pageSize": {
+            "type": "Int"
+          }
+        }
+      }
+    },
+    "userCursorResult": {
+      "results": {
+        "type": "user",
+        "isList": true
+      },
+      "filter": {
+        "type": "JSON"
+      },
+      "sort": {
+        "type": "[String]"
+      },
+      "pageNumber": {
+        "type": "Int"
+      },
+      "pageSize": {
+        "type": "Int"
+      },
+      "totalResults": {
+        "type": "Int"
+      },
+      "lastFetched": {
+        "type": "Date"
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "createUserPayload": {
+      "createdItemsCursor": {
+        "type": "userCursorResult"
+      }
+    },
+    "updateUserPayload": {
+      "updatedItemsCursor": {
+        "type": "userCursorResult"
+      }
+    },
+    "updateUsersWithQueryPayload": {
+      "updatedItemsCursor": {
+        "type": "userCursorResult"
+      }
+    },
+    "deleteUserPayload": {
+      "deletedCount": {
+        "type": "Int",
+        "isScalar": true
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "deleteUsersWithQueryPayload": {
       "deletedCount": {
         "type": "Int",
         "isScalar": true
@@ -362,6 +520,137 @@
       }
     },
     "deleteCategoriesWithQueryPayload": {
+      "deletedCount": {
+        "type": "Int",
+        "isScalar": true
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "userLogin": {
+      "loginName": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": false
+      },
+      "loginPassword": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "token": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "loginType": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "userId": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "comment": "Reference key for user",
+        "isKey": false
+      },
+      "user": {
+        "type": "user",
+        "required": false
+      },
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "comment": "primary key",
+        "isKey": true
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "userLoginCursorResult": {
+      "results": {
+        "type": "userLogin",
+        "isList": true
+      },
+      "filter": {
+        "type": "JSON"
+      },
+      "sort": {
+        "type": "[String]"
+      },
+      "pageNumber": {
+        "type": "Int"
+      },
+      "pageSize": {
+        "type": "Int"
+      },
+      "totalResults": {
+        "type": "Int"
+      },
+      "lastFetched": {
+        "type": "Date"
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "createUserLoginPayload": {
+      "createdItemsCursor": {
+        "type": "userLoginCursorResult"
+      }
+    },
+    "updateUserLoginPayload": {
+      "updatedItemsCursor": {
+        "type": "userLoginCursorResult"
+      }
+    },
+    "updateUserLoginsWithQueryPayload": {
+      "updatedItemsCursor": {
+        "type": "userLoginCursorResult"
+      }
+    },
+    "deleteUserLoginPayload": {
+      "deletedCount": {
+        "type": "Int",
+        "isScalar": true
+      },
+      "typeUpdates": {
+        "type": "typeUpdate",
+        "isList": true
+      }
+    },
+    "deleteUserLoginsWithQueryPayload": {
       "deletedCount": {
         "type": "Int",
         "isScalar": true
@@ -538,6 +827,12 @@
         "isScalar": true,
         "isKey": false
       },
+      "status": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
       "todoCategoryId": {
         "type": "String",
         "required": false,
@@ -548,12 +843,6 @@
       "todoCategory": {
         "type": "createCategoryInput",
         "required": false
-      },
-      "status": {
-        "type": "String",
-        "required": false,
-        "isScalar": true,
-        "isKey": false
       },
       "createdAt": {
         "type": "Date",
@@ -606,6 +895,12 @@
         "isScalar": true,
         "isKey": false
       },
+      "status": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
       "todoCategoryId": {
         "type": "String",
         "required": false,
@@ -615,12 +910,6 @@
       },
       "todoCategory": {
         "type": "updateCategoryInput"
-      },
-      "status": {
-        "type": "String",
-        "required": false,
-        "isScalar": true,
-        "isKey": false
       },
       "createdAt": {
         "type": "Date",
@@ -659,17 +948,17 @@
         "isScalar": true,
         "isKey": false
       },
+      "status": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
       "todoCategoryId": {
         "type": "String",
         "required": false,
         "isScalar": true,
         "comment": "Reference key for todoCategory",
-        "isKey": false
-      },
-      "status": {
-        "type": "String",
-        "required": false,
-        "isScalar": true,
         "isKey": false
       },
       "createdAt": {
@@ -728,6 +1017,261 @@
       }
     },
     "deleteTodosWithQueryInput": {
+      "deleteQueries": {
+        "type": "JSON",
+        "isScalar": true,
+        "isList": true
+      }
+    },
+    "createUserInput": {
+      "email": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "firstName": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "id": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": true
+      },
+      "lastName": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "username": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      },
+      "userLogins": {
+        "type": "createUserLoginInput",
+        "required": false,
+        "isList": true,
+        "args": {
+          "filter": {
+            "type": "JSON"
+          },
+          "sort": {
+            "type": "[String]"
+          },
+          "pageNumber": {
+            "type": "Int"
+          },
+          "pageSize": {
+            "type": "Int"
+          }
+        }
+      }
+    },
+    "bulkCreateusersInput": {
+      "createItems": {
+        "type": "createUserInput",
+        "isList": true
+      }
+    },
+    "updateUserInput": {
+      "email": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "firstName": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": true
+      },
+      "lastName": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "username": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      },
+      "userLogins": {
+        "type": "updateUserLoginInput",
+        "isList": true,
+        "args": {
+          "filter": {
+            "type": "JSON"
+          },
+          "sort": {
+            "type": "[String]"
+          },
+          "pageNumber": {
+            "type": "Int"
+          },
+          "pageSize": {
+            "type": "Int"
+          }
+        }
+      }
+    },
+    "updateUserValuesInput": {
+      "email": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "firstName": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastName": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "username": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "updateUserQueryInput": {
+      "values": {
+        "type": "updateUserValuesInput",
+        "isList": false
+      },
+      "where": {
+        "type": "JSON",
+        "isScalar": true,
+        "required": true
+      }
+    },
+    "updateUsersWithQueryInput": {
+      "updateQueries": {
+        "type": "updateUserQueryInput",
+        "isList": true
+      }
+    },
+    "deleteUserInput": {
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": true
+      },
+      "userLogins": {
+        "type": "deleteUserLoginInput",
+        "required": false,
+        "isList": true,
+        "args": {
+          "filter": {
+            "type": "JSON"
+          },
+          "sort": {
+            "type": "[String]"
+          },
+          "pageNumber": {
+            "type": "Int"
+          },
+          "pageSize": {
+            "type": "Int"
+          }
+        }
+      }
+    },
+    "deleteUsersWithQueryInput": {
       "deleteQueries": {
         "type": "JSON",
         "isScalar": true,
@@ -934,6 +1478,240 @@
         "isScalar": true,
         "isList": true
       }
+    },
+    "createUserLoginInput": {
+      "loginName": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "isKey": false
+      },
+      "loginPassword": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "token": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "loginType": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "userId": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "comment": "Reference key for user",
+        "isKey": false
+      },
+      "user": {
+        "type": "createUserInput",
+        "required": false
+      },
+      "id": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "comment": "primary key",
+        "isKey": true
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "bulkCreateuserLoginsInput": {
+      "createItems": {
+        "type": "createUserLoginInput",
+        "isList": true
+      }
+    },
+    "updateUserLoginInput": {
+      "loginName": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "loginPassword": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "token": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "loginType": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "userId": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "comment": "Reference key for user",
+        "isKey": false
+      },
+      "user": {
+        "type": "updateUserInput"
+      },
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "comment": "primary key",
+        "isKey": true
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "updateUserLoginValuesInput": {
+      "loginName": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "loginPassword": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "token": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "loginType": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "userId": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "comment": "Reference key for user",
+        "isKey": false
+      },
+      "createdAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "updatedAt": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "cid": {
+        "type": "String",
+        "required": false,
+        "isScalar": true,
+        "isKey": false
+      },
+      "lastFetched": {
+        "type": "Date",
+        "required": false,
+        "isScalar": true,
+        "comment": "Server generated property that indicates the last time this attribute was fetched"
+      }
+    },
+    "updateUserLoginQueryInput": {
+      "values": {
+        "type": "updateUserLoginValuesInput",
+        "isList": false
+      },
+      "where": {
+        "type": "JSON",
+        "isScalar": true,
+        "required": true
+      }
+    },
+    "updateUserLoginsWithQueryInput": {
+      "updateQueries": {
+        "type": "updateUserLoginQueryInput",
+        "isList": true
+      }
+    },
+    "deleteUserLoginInput": {
+      "user": {
+        "type": "deleteUserInput",
+        "required": false
+      },
+      "id": {
+        "type": "String",
+        "required": true,
+        "isScalar": true,
+        "comment": "primary key",
+        "isKey": true
+      }
+    },
+    "deleteUserLoginsWithQueryInput": {
+      "deleteQueries": {
+        "type": "JSON",
+        "isScalar": true,
+        "isList": true
+      }
     }
   },
   "queries": {
@@ -995,6 +1773,35 @@
         }
       }
     },
+    "user": {
+      "type": "user",
+      "isList": false,
+      "args": {
+        "id": {
+          "type": "String",
+          "required": true,
+          "isScalar": true
+        }
+      }
+    },
+    "users": {
+      "type": "userCursorResult",
+      "isList": false,
+      "args": {
+        "filter": {
+          "type": "JSON"
+        },
+        "sort": {
+          "type": "[String]"
+        },
+        "pageNumber": {
+          "type": "Int"
+        },
+        "pageSize": {
+          "type": "Int"
+        }
+      }
+    },
     "category": {
       "type": "category",
       "isList": false,
@@ -1008,6 +1815,35 @@
     },
     "categories": {
       "type": "categoryCursorResult",
+      "isList": false,
+      "args": {
+        "filter": {
+          "type": "JSON"
+        },
+        "sort": {
+          "type": "[String]"
+        },
+        "pageNumber": {
+          "type": "Int"
+        },
+        "pageSize": {
+          "type": "Int"
+        }
+      }
+    },
+    "userLogin": {
+      "type": "userLogin",
+      "isList": false,
+      "args": {
+        "id": {
+          "type": "String",
+          "required": true,
+          "isScalar": true
+        }
+      }
+    },
+    "userLogins": {
+      "type": "userLoginCursorResult",
       "isList": false,
       "args": {
         "filter": {
@@ -1122,6 +1958,54 @@
         }
       }
     },
+    "createUser": {
+      "type": "createUserPayload",
+      "args": {
+        "input": {
+          "type": "createUserInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "updateUser": {
+      "type": "updateUserPayload",
+      "args": {
+        "input": {
+          "type": "updateUserInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "updateUsersWithQuery": {
+      "type": "updateUsersWithQueryPayload",
+      "args": {
+        "input": {
+          "type": "updateUsersWithQueryInput",
+          "required": true
+        }
+      }
+    },
+    "deleteUser": {
+      "type": "deleteUserPayload",
+      "args": {
+        "input": {
+          "type": "deleteUserInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "deleteUsersWithQuery": {
+      "type": "deleteUsersWithQueryPayload",
+      "args": {
+        "input": {
+          "type": "deleteUsersWithQueryInput",
+          "required": true
+        }
+      }
+    },
     "createCategory": {
       "type": "createCategoryPayload",
       "args": {
@@ -1166,6 +2050,54 @@
       "args": {
         "input": {
           "type": "deleteCategoriesWithQueryInput",
+          "required": true
+        }
+      }
+    },
+    "createUserLogin": {
+      "type": "createUserLoginPayload",
+      "args": {
+        "input": {
+          "type": "createUserLoginInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "updateUserLogin": {
+      "type": "updateUserLoginPayload",
+      "args": {
+        "input": {
+          "type": "updateUserLoginInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "updateUserLoginsWithQuery": {
+      "type": "updateUserLoginsWithQueryPayload",
+      "args": {
+        "input": {
+          "type": "updateUserLoginsWithQueryInput",
+          "required": true
+        }
+      }
+    },
+    "deleteUserLogin": {
+      "type": "deleteUserLoginPayload",
+      "args": {
+        "input": {
+          "type": "deleteUserLoginInput",
+          "isList": true,
+          "required": true
+        }
+      }
+    },
+    "deleteUserLoginsWithQuery": {
+      "type": "deleteUserLoginsWithQueryPayload",
+      "args": {
+        "input": {
+          "type": "deleteUserLoginsWithQueryInput",
           "required": true
         }
       }
