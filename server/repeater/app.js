@@ -6,7 +6,17 @@ const logger = require("morgan");
 const Promise = require("bluebird");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
-const { refreshSchema } = require("oradm-to-gql");
+const bodyParser = require("body-parser");
+const { graphqlExpress, graphiqlExpress } = require("graphql-server-express");
+
+const {
+  refreshSchema,
+  dropAndSyncDatabase,
+  loadDataLib,
+  loadResolvers,
+  loadSchemaStr
+} = require("oradm-to-gql");
+const { makeExecutableSchema } = require("graphql-tools");
 
 const debug = require("debug")("repeater:server");
 const http = require("http");
@@ -19,6 +29,35 @@ getAppConfig()
     return Promise.resolve(app);
   })
   .tap(app => {
+    if (app.get("appConfig").refreshSchema) {
+      return refreshSchema(app.get("appConfig"), {
+        log: console.log,
+        timestamps: { created: "createdAt", modified: "updatedAt" }
+      });
+    }
+    return Promise.resolve();
+  })
+  .tap(app => {
+    if (app.get("appConfig").refreshSchema) {
+      return dropAndSyncDatabase(app.get("appConfig"), undefined, {
+        log: console.log
+      });
+    }
+    return Promise.resolve();
+  })
+  .tap(app => {
+    const appConfig = app.get("appConfig");
+    const { DataLib, db } = loadDataLib(appConfig);
+    app.set("DataLib", DataLib);
+    app.set("db", db);
+    const resolvers = loadResolvers({ DataLib, db }, appConfig);
+    const graphQLSchemaStr = loadSchemaStr(appConfig.graphql.schemaPath);
+    const gqlSchema = makeExecutableSchema({
+      typeDefs: graphQLSchemaStr,
+      resolvers
+    });
+    app.set("gqlSchema", gqlSchema);
+
     // view engine setup
     app.set("views", path.join(__dirname, "views"));
     app.set("view engine", "pug");
@@ -29,6 +68,12 @@ getAppConfig()
     app.use(cookieParser());
     app.use(express.static(path.join(__dirname, "public")));
 
+    // add endpoints
+    app.use("/graphql", graphqlExpress({ schema: gqlSchema }));
+    app.use(
+      "/graphiql",
+      graphiqlExpress({ endpointURL: "http://localhost:3000/graphql" })
+    );
     app.use("/users", usersRouter);
     app.use("/*", indexRouter);
 
@@ -47,15 +92,6 @@ getAppConfig()
       res.status(err.status || 500);
       res.render("error");
     });
-    return Promise.resolve();
-  })
-  .tap(app => {
-    if (app.get("appConfig").refreshSchema) {
-      return refreshSchema(app.get("appConfig"), {
-        log: console.log,
-        timestamps: { created: "createdAt", modified: "updatedAt" }
-      });
-    }
     return Promise.resolve();
   })
   .tap(app => {

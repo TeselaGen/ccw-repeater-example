@@ -96,7 +96,7 @@
         "nullable": true,
         "columnName": "description"
       },
-      "Id": {
+      "id": {
         "name": "id",
         "dataType": "NUMERIC",
         "isPrimaryKey": true,
@@ -188,7 +188,7 @@
       }
     },
     "associations": [],
-    "primaryKeyField": "Id",
+    "primaryKeyField": "id",
     "indexes": [
       {
         "attributes": [

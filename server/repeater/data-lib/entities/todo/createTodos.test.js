@@ -70,7 +70,7 @@ describe("createTodos", () => {
     it("createTodos returns empty array", async () => {
         let records = [
             {
-                Id: "123"
+                id: "123"
             }
         ];
 
@@ -96,7 +96,7 @@ describe("createTodos", () => {
 
         let records = [
             {
-                Id: "&123"
+                id: "&123"
             }
         ];
 

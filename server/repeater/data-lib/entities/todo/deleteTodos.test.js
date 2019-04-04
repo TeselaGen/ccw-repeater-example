@@ -8,7 +8,7 @@ describe("deleteTodos", () => {
     it("deleteTodos deletes records", async () => {
         let records = [
             {
-                Id: "123"
+                id: "123"
             }
         ];
 
@@ -53,7 +53,7 @@ describe("deleteTodos", () => {
     it("deleteTodos returns undefined", async () => {
         let records = [
             {
-                Id: "123"
+                id: "123"
             }
         ];
 

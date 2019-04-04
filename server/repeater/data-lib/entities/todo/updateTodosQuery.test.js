@@ -23,13 +23,13 @@ describe("updateTodosQuery", () => {
                     attr: "value"
                 },
                 where: {
-                    Id: "123"
+                    id: "123"
                 }
             }
         ];
 
         let mockResult = [{
-            Id: "123"
+            id: "123"
         }];
 
         let mockAllow = jest.fn(() => true);

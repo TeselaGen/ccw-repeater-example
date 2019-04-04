@@ -8,7 +8,7 @@ describe("deleteTodosQuery", () => {
     it("deleteTodosQuery deletes records via a query", async () => {
         let statements = [
             {
-                Id: "123"
+                id: "123"
             }
         ];
 
@@ -50,7 +50,7 @@ describe("deleteTodosQuery", () => {
     it("deleteTodosQuery returns undefined", async () => {
         let statements = [
             {
-                Id: "123"
+                id: "123"
             }
         ];
 

@@ -63,7 +63,7 @@ async function getTodo(key, selectFields = [], opts){
     }
     
     return qry.then((cts) => {
-        return this.db("todo").first(select).where({ Id: key })
+        return this.db("todo").first(select).where({ id: key })
                 .then((rec) => {
                     return processResult(rec, cts, convertJsonToText);
                 });

@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Id" id="1775B27B-BB6B-C0E8-BD2F-850C839F25F0">
+<Attribute name="id" id="1775B27B-BB6B-C0E8-BD2F-850C839F25F0">
 <createdBy>colin</createdBy>
 <createdTime>2019-04-03 18:33:19 UTC</createdTime>
 <comment>This is the unique identifier, obviously</comment>

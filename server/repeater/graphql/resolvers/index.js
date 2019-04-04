@@ -125,13 +125,13 @@ module.exports = function generateCoreResolver(db, DataLib, opts){
 
     resolvers.Query.todos = function(root, { filter, sort, pageNumber, pageSize }, context, info ){
         let dataLib = getDataLibWithContext(db, context);
-        return getResultsCursor("todo","Id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+        return getResultsCursor("todo","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
     }
 
     resolvers.Query.todo = function(root, args, context, info ){
         let dataLib = getDataLibWithContext(db, context);
         let fields = Object.keys(graphqlFields(info));
-        return dataLib.entities.todo.get(args.Id, fields, { root: true });
+        return dataLib.entities.todo.get(args.id, fields, { root: true });
     }
 
     resolvers.Mutation.createTodo = function( root, { input }, context, info){
@@ -145,11 +145,11 @@ module.exports = function generateCoreResolver(db, DataLib, opts){
     resolvers.createTodoPayload = {
         createdItemsCursor: function( parent, { filter, sort, pageNumber, pageSize }, context, info){
             let dataLib = getDataLibWithContext(db, context);
-            let pkFilter = { Id: parent.ids };
+            let pkFilter = { id: parent.ids };
 
             filter = appendFilter(filter, "todo", pkFilter);
 
-            return getResultsCursor("todo","Id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+            return getResultsCursor("todo","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
         }
     }
 
@@ -166,11 +166,11 @@ module.exports = function generateCoreResolver(db, DataLib, opts){
     resolvers.updateTodoPayload = {
         updatedItemsCursor: function( parent, { filter, sort, pageNumber, pageSize }, context, info){
             let dataLib = getDataLibWithContext(db, context);
-            let pkFilter = { Id: parent.ids };
+            let pkFilter = { id: parent.ids };
             
             filter = appendFilter(filter, "todo", pkFilter);
 
-            return getResultsCursor("todo","Id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+            return getResultsCursor("todo","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
         }
     }
 
@@ -187,11 +187,11 @@ module.exports = function generateCoreResolver(db, DataLib, opts){
     resolvers.updateTodosWithQueryPayload = {
         updatedItemsCursor: function( parent, { filter, sort, pageNumber, pageSize }, context, info){
             let dataLib = getDataLibWithContext(db, context);
-            let pkFilter = { Id: parent.ids };
+            let pkFilter = { id: parent.ids };
             
             filter = appendFilter(filter, "todo", pkFilter);
 
-            return getResultsCursor("todo","Id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
+            return getResultsCursor("todo","id", filter, sort, pageNumber, pageSize, info, dataLib, { root: true });
         }
     }
 

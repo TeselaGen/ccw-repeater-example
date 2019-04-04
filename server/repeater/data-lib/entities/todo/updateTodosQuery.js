@@ -60,7 +60,7 @@ async function updateTodosQuery(updateStatements, trx, opts){
         };
 
 
-        let cidsToResolve = getCidReferences([values], columnMap, relatedObjects, "Id");
+        let cidsToResolve = getCidReferences([values], columnMap, relatedObjects, "id");
         await resolveCidReferences(cidsToResolve, qry, true);
 
         let updateFilter = stmt.where;
@@ -72,11 +72,11 @@ async function updateTodosQuery(updateStatements, trx, opts){
         return applyFilter(qry("todo"), "todo", stmt.where)
                 .update(values)
                 .then(() => {
-                    return applyFilter(qry("todo").select("Id"), "todo", updateFilter);
+                    return applyFilter(qry("todo").select("id"), "todo", updateFilter);
                 })
                 .then((results) => {
                     results.forEach((row) => {
-                        updatedIds.push(row.Id);
+                        updatedIds.push(row.id);
                     });
                     return Promise.resolve();
                 });

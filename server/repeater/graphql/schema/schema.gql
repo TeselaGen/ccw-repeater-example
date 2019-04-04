@@ -300,7 +300,7 @@
  type Query {
   typeUpdate(code: String!): typeUpdate
   typeUpdates(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): typeUpdateCursorResult
-  todo(Id: String!): todo
+  todo(id: String!): todo
   todos(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): todoCursorResult
   category(id: String!): category
   categories(filter: JSON, sort: [String], pageNumber: Int, pageSize: Int): categoryCursorResult

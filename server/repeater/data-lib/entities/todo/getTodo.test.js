@@ -5,9 +5,9 @@ const Promise = require('bluebird');
 const getTodo = require('./getTodo');
 
 describe("getTodo", () => {
-    it("getTodo executes select by Id", async () => {
+    it("getTodo executes select by id", async () => {
         let mockResult = {
-            Id: "123"
+            id: "123"
         };
 
         let mockAllow = jest.fn(() => true);
@@ -44,11 +44,11 @@ describe("getTodo", () => {
         expect(mockAllow).toHaveBeenCalled();
         expect(mockFields).toHaveBeenCalled();
         expect(mockFirst).toHaveBeenCalled();
-        expect(mockWhere).toBeCalledWith({ Id: "123" });
+        expect(mockWhere).toBeCalledWith({ id: "123" });
         expect(result).toMatchObject(mockResult);
     });
 
-    it("getTodo returns undefined if Id doesn't exist", async () => {
+    it("getTodo returns undefined if id doesn't exist", async () => {
 
         let mockAllow = jest.fn(() => true);
         let mockFields = jest.fn((fields) => fields);
@@ -84,13 +84,13 @@ describe("getTodo", () => {
         expect(mockAllow).toHaveBeenCalled();
         expect(mockFields).toHaveBeenCalled();
         expect(mockFirst).toHaveBeenCalled();
-        expect(mockWhere).toBeCalledWith({ Id: "123" });
+        expect(mockWhere).toBeCalledWith({ id: "123" });
         expect(result).toBeUndefined();
     });
 
     it("getTodo executes select by cid", async () => {
         let mockResult = {
-            Id: "123"
+            id: "123"
         };
 
         let mockAllow = jest.fn(() => true);
@@ -133,13 +133,13 @@ describe("getTodo", () => {
 
     it("getTodo returns lastFetched", async () => {
         let mockResult = {
-            Id: "123"
+            id: "123"
         };
         
         let mockLastFetched = new Date();
         
         let expectedResult = {
-            Id: "123",
+            id: "123",
             lastFetched: mockLastFetched
         };
 

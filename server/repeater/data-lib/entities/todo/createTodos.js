@@ -59,14 +59,14 @@ async function createTodos(createRecords, trx, opts){
     let nestedParentRecords = getNestedParentRecords(relatedObjects, records);
     await insertParentRecords(nestedParentRecords, dataAccessLib, qry);
 
-    let cidsToResolve = getCidReferences(records, columnMap, relatedObjects, "Id")
+    let cidsToResolve = getCidReferences(records, columnMap, relatedObjects, "id")
     await resolveCidReferences(cidsToResolve, qry);
 
     let recordsToInsert = mapAttributesToColumns(records, columnMap);
 
     return qry
         .batchInsert('todo', recordsToInsert, 500)
-        .returning('Id')
+        .returning('id')
         .then((ids) => {
             return this.entities.todo.createNestedRecords(qry, ids, records)
                 .then(()=> {

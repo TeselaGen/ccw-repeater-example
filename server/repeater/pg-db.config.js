@@ -1,6 +1,6 @@
 /* Copyright (C) 2018 TeselaGen Biotechnology, Inc. */
 const { parse } = require("pg-connection-string");
-const dbName = process.env.DB_NAME || "echo";
+const dbName = process.env.DB_NAME || "postgres";
 const host = process.env.DB_HOST || "localhost";
 const user = process.env.DB_USER || "echo";
 const pass = process.env.DB_PASS || "ThisIsASecret";

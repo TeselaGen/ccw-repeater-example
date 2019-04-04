@@ -15,7 +15,7 @@ describe("updateTodos", () => {
 
         let records = [
             {
-                Id: "123",
+                id: "123",
                 createdAt: updatingCreatedAtDate
             }
         ];
@@ -25,7 +25,7 @@ describe("updateTodos", () => {
         let mockFilter = jest.fn((filter) => filter);
         let mockUpdateNestedRecords = jest.fn(() => Promise.resolve());
         let mockUpdate = jest.fn(() => Promise.resolve());
-        let mockFirst = jest.fn(() => Promise.resolve({ Id: "123" }))
+        let mockFirst = jest.fn(() => Promise.resolve({ id: "123" }))
         let mockWhere = jest.fn(() => {
             return {
                 update: mockUpdate
@@ -96,7 +96,7 @@ describe("updateTodos", () => {
 
         let records = [
             {
-                Id: "123",
+                id: "123",
                 createdAt: updatingCreatedAtDate
             }
         ];
@@ -177,7 +177,7 @@ describe("updateTodos", () => {
 
         let records = [
             {
-                Id: "&123",
+                id: "&123",
                 createdAt: updatingCreatedAtDate
             }
         ];
@@ -187,7 +187,7 @@ describe("updateTodos", () => {
         let mockFilter = jest.fn((filter) => filter);
         let mockUpdateNestedRecords = jest.fn(() => Promise.resolve());
         let mockUpdate = jest.fn(() => Promise.resolve());
-        let mockFirst = jest.fn(() => Promise.resolve({ Id: "123" }))
+        let mockFirst = jest.fn(() => Promise.resolve({ id: "123" }))
         let mockWhere = jest.fn(() => {
             return {
                 update: mockUpdate
@@ -258,7 +258,7 @@ describe("updateTodos", () => {
 
         let records = [
             {
-                Id: "123",
+                id: "123",
                 createdAt: updatingCreatedAtDate
             }
         ];
@@ -268,7 +268,7 @@ describe("updateTodos", () => {
         let mockFilter = jest.fn((filter) => filter);
         let mockUpdateNestedRecords = jest.fn(() => Promise.resolve());
         let mockUpdate = jest.fn(() => Promise.resolve());
-        let mockFirst = jest.fn(() => Promise.resolve({ Id: "123" }))
+        let mockFirst = jest.fn(() => Promise.resolve({ id: "123" }))
         let mockWhere = jest.fn(() => {
             return {
                 update: mockUpdate
@@ -339,7 +339,7 @@ describe("updateTodos", () => {
 
         let records = [
             {
-                Id: "123",
+                id: "123",
                 childAttr: { }
             }
         ];
@@ -349,7 +349,7 @@ describe("updateTodos", () => {
         let mockFilter = jest.fn((filter) => filter);
         let mockUpdateNestedRecords = jest.fn(() => Promise.resolve());
         let mockUpdate = jest.fn(() => Promise.resolve());
-        let mockFirst = jest.fn(() => Promise.resolve({ Id: "123" }))
+        let mockFirst = jest.fn(() => Promise.resolve({ id: "123" }))
         let mockWhere = jest.fn(() => {
             return {
                 update: mockUpdate
@@ -420,7 +420,7 @@ describe("updateTodos", () => {
 
         let records = [
             {
-                Id: "123",
+                id: "123",
                 childAttr: { }
             }
         ];
@@ -496,7 +496,7 @@ describe("updateTodos", () => {
     it("updateTodos returns empty array", async () => {
         let records = [
             {
-                Id: "123"
+                id: "123"
             }
         ];
 
@@ -522,7 +522,7 @@ describe("updateTodos", () => {
 
         let records = [
             {
-                Id: "&123"
+                id: "&123"
             }
         ];
 

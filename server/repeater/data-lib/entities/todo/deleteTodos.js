@@ -14,10 +14,10 @@ async function deleteTodos(records, trx, opts){
     let ids = [];
 
     each(records, (rec) => {
-        ids.push(rec.Id);
+        ids.push(rec.id);
     });
 
-    let deleteFilter = { "Id": ids };
+    let deleteFilter = { "id": ids };
 
     deleteFilter = await Promise.resolve(this.entities.todo.extensions.onDelete.filter.call(this, deleteFilter, opts));
 

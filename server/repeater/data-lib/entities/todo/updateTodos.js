@@ -34,16 +34,16 @@ async function updateTodos(updateRecords, fkFilter, trx, opts){
     let modifiedTimestamp = new Date();
     return Promise.each(records, async (updateRecord) =>
     {
-        let recordId = updateRecord.Id;
+        let recordId = updateRecord.id;
 
         if (Object.keys(updateRecord).length <= 1) {
             return Promise.resolve() //no values are actually being updated (just the primary key is getting passed on updateRecord object)
         }
 
         if(startsWith(recordId, "&")){
-            let rec = await qry("todo").first("Id").where({ cid: recordId.substr(1) });
-            recordId = rec.Id;
-            updateRecord.Id = recordId;
+            let rec = await qry("todo").first("id").where({ cid: recordId.substr(1) });
+            recordId = rec.id;
+            updateRecord.id = recordId;
         }
 
         let values = {
@@ -76,7 +76,7 @@ async function updateTodos(updateRecords, fkFilter, trx, opts){
         ];
 
         let updateFilter = {
-            Id: recordId 
+            id: recordId 
         };
 
         //this is just being used as a linker record
@@ -87,7 +87,7 @@ async function updateTodos(updateRecords, fkFilter, trx, opts){
                     .where(updateFilter)
                     .first()
             .then((result) => {
-                if(result) ids.push(result.Id);
+                if(result) ids.push(result.id);
                 assign(updateRecord, result);
                 return Promise.resolve();
             });
@@ -135,7 +135,7 @@ async function updateTodos(updateRecords, fkFilter, trx, opts){
         };
 
 
-        let cidsToResolve = getCidReferences([values], columnMap, relatedObjects, "Id")
+        let cidsToResolve = getCidReferences([values], columnMap, relatedObjects, "id")
         await resolveCidReferences(cidsToResolve, qry, true);
 
         return applyFilter(qry("todo"), "todo", updateFilter)
@@ -145,7 +145,7 @@ async function updateTodos(updateRecords, fkFilter, trx, opts){
                            .first();
                 })
                 .then((result) => {
-                    if(result) ids.push(result.Id);
+                    if(result) ids.push(result.id);
                     assign(updateRecord, result);
                     return Promise.resolve();
                 });

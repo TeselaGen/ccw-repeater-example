@@ -970,7 +970,7 @@
       "type": "todo",
       "isList": false,
       "args": {
-        "Id": {
+        "id": {
           "type": "String",
           "required": true,
           "isScalar": true
