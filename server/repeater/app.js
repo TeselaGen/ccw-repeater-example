@@ -7,6 +7,8 @@ const Promise = require("bluebird");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+
 const { graphqlExpress, graphiqlExpress } = require("graphql-server-express");
 
 const {
@@ -58,6 +60,20 @@ getAppConfig()
     });
     app.set("gqlSchema", gqlSchema);
 
+    // cors TODO make less broad
+    app.use(
+      cors({
+        credentials: true,
+        origin: true
+      })
+    );
+    // Handle CORS Pre-flight request
+    app.options(
+      "*",
+      cors({
+        origin: true
+      })
+    );
     // view engine setup
     app.set("views", path.join(__dirname, "views"));
     app.set("view engine", "pug");

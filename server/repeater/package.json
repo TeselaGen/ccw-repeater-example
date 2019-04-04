@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "refreshSchema=1 node app.js",
+    "ds": "refreshSchema=1 node app.js",
+    "start": "node app.js",
     "init-pg": "sh ../../scripts/reset_postgres.sh"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "graphql": "^14.2.1",
