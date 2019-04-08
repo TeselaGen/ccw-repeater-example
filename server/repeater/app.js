@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const { graphqlExpress, graphiqlExpress } = require("graphql-server-express");
+const initAuthManager = require("./auth/initAuthManager");
 
 const {
   refreshSchema,
@@ -83,6 +84,7 @@ getAppConfig()
     app.use(express.urlencoded({ extended: false }));
     app.use(cookieParser());
     app.use(express.static(path.join(__dirname, "public")));
+    initAuthManager(app);
 
     // add endpoints
     app.use("/graphql", graphqlExpress({ schema: gqlSchema }));

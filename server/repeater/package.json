@@ -8,10 +8,12 @@
     "init-pg": "sh ../../scripts/reset_postgres.sh"
   },
   "dependencies": {
+    "@teselagen/tgauth": "^1.5.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
+    "dotenv": "^7.0.0",
     "express": "~4.16.0",
     "graphql": "^14.2.1",
     "graphql-server-express": "^1.4.0",
