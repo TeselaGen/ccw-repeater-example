@@ -54,21 +54,6 @@
 <domain>95F01105-1762-DCF3-FC81-11A6B560747C</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="TodoCategory_id" id="A0BEBF26-C90B-FD16-A021-41C22F47AC3C">
-<createdBy>colin</createdBy>
-<createdTime>2019-04-03 18:36:17 UTC</createdTime>
-<generatorID>E100D412-FCEF-AC11-6788-D3F3FE5935E0</generatorID>
-<ownerDesignName>repeater</ownerDesignName>
-<engineerTo>
-<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>F9C03731-E645-073C-FF80-168D3711D09F</referedAttribute>
-<use>0</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<domain>226ADBAC-7E5D-133A-D68E-D41F1758FB6C</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="Status" id="37ABFDE8-73B6-7DAE-5B28-C1E6A2CAE2AD">
 <createdBy>colin</createdBy>
 <createdTime>2019-04-03 23:43:13 UTC</createdTime>
@@ -80,6 +65,34 @@
 <use>0</use>
 <logicalDatatype>LOGDT037</logicalDatatype>
 <domain>E22467A2-A793-E4C5-0C65-F663AC065B95</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Category_id" id="3CD4D495-6D7C-3F51-A51D-7A79129954B4">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-12 20:20:27 UTC</createdTime>
+<generatorID>4A172F6D-E5B0-8277-D502-E9B23C7D2EB2</generatorID>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<referedAttribute>F9C03731-E645-073C-FF80-168D3711D09F</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>226ADBAC-7E5D-133A-D68E-D41F1758FB6C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="User_id" id="0121494F-6FDF-061C-9333-B2A51DACCB8A">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-12 20:21:44 UTC</createdTime>
+<generatorID>C1FD90DA-D894-6C97-5D2F-A7C4D0310BDF</generatorID>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<referedAttribute>F808B80B-161E-9DF1-1B33-89DF79A58B35</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>226ADBAC-7E5D-133A-D68E-D41F1758FB6C</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

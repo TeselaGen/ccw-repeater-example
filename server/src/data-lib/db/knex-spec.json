@@ -1,0 +1,544 @@
+{
+  "tables": [
+    {
+      "schema": "echo",
+      "tableName": "typeUpdate",
+      "columns": [
+        {
+          "type": "string",
+          "typeArgs": [
+            "code",
+            400
+          ],
+          "name": "code",
+          "primaryKey": true,
+          "increments": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "lastUpdated"
+          ],
+          "name": "lastUpdated",
+          "primaryKey": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "createdAt"
+          ],
+          "name": "createdAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "updatedAt"
+          ],
+          "name": "updatedAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "cid",
+            500
+          ],
+          "name": "cid",
+          "primaryKey": false,
+          "unique": true
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "schema": "echo",
+      "tableName": "todo",
+      "columns": [
+        {
+          "type": "string",
+          "typeArgs": [
+            "description",
+            4000
+          ],
+          "name": "description",
+          "primaryKey": false
+        },
+        {
+          "type": "specificType",
+          "typeArgs": [
+            "id",
+            "NUMERIC"
+          ],
+          "name": "id",
+          "primaryKey": true,
+          "increments": true
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "name",
+            400
+          ],
+          "name": "name",
+          "primaryKey": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "status",
+            400
+          ],
+          "name": "status",
+          "primaryKey": false
+        },
+        {
+          "type": "integer",
+          "typeArgs": [
+            "categoryId"
+          ],
+          "name": "categoryId",
+          "primaryKey": false
+        },
+        {
+          "type": "integer",
+          "typeArgs": [
+            "userId"
+          ],
+          "name": "userId",
+          "primaryKey": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "createdAt"
+          ],
+          "name": "createdAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "updatedAt"
+          ],
+          "name": "updatedAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "cid",
+            500
+          ],
+          "name": "cid",
+          "primaryKey": false,
+          "unique": true
+        }
+      ],
+      "indexes": [
+        {
+          "indexName": "todo_category_ix",
+          "columns": [
+            "categoryId"
+          ]
+        },
+        {
+          "indexName": "todo_user_ix",
+          "columns": [
+            "userId"
+          ]
+        }
+      ]
+    },
+    {
+      "schema": "echo",
+      "tableName": "user",
+      "columns": [
+        {
+          "type": "string",
+          "typeArgs": [
+            "email",
+            400
+          ],
+          "name": "email",
+          "primaryKey": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "firstName",
+            400
+          ],
+          "name": "firstName",
+          "primaryKey": false
+        },
+        {
+          "type": "specificType",
+          "typeArgs": [
+            "id",
+            "NUMERIC"
+          ],
+          "name": "id",
+          "primaryKey": true,
+          "increments": true
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "lastName",
+            400
+          ],
+          "name": "lastName",
+          "primaryKey": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "username",
+            400
+          ],
+          "name": "username",
+          "primaryKey": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "createdAt"
+          ],
+          "name": "createdAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "updatedAt"
+          ],
+          "name": "updatedAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "cid",
+            500
+          ],
+          "name": "cid",
+          "primaryKey": false,
+          "unique": true
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "schema": "echo",
+      "tableName": "category",
+      "columns": [
+        {
+          "type": "specificType",
+          "typeArgs": [
+            "id",
+            "NUMERIC"
+          ],
+          "name": "id",
+          "primaryKey": true,
+          "increments": true
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "name",
+            400
+          ],
+          "name": "name",
+          "primaryKey": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "createdAt"
+          ],
+          "name": "createdAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "updatedAt"
+          ],
+          "name": "updatedAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "cid",
+            500
+          ],
+          "name": "cid",
+          "primaryKey": false,
+          "unique": true
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "schema": "echo",
+      "tableName": "userLogin",
+      "columns": [
+        {
+          "type": "string",
+          "typeArgs": [
+            "loginName",
+            400
+          ],
+          "name": "loginName",
+          "primaryKey": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "loginPassword",
+            400
+          ],
+          "name": "loginPassword",
+          "primaryKey": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "token",
+            400
+          ],
+          "name": "token",
+          "primaryKey": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "loginType",
+            400
+          ],
+          "name": "loginType",
+          "primaryKey": false
+        },
+        {
+          "type": "integer",
+          "typeArgs": [
+            "userId"
+          ],
+          "name": "userId",
+          "primaryKey": false
+        },
+        {
+          "type": "specificType",
+          "typeArgs": [
+            "id",
+            "NUMERIC"
+          ],
+          "name": "id",
+          "primaryKey": true,
+          "increments": true
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "createdAt"
+          ],
+          "name": "createdAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "timestamp",
+          "typeArgs": [
+            "updatedAt"
+          ],
+          "name": "updatedAt",
+          "primaryKey": false,
+          "unique": false
+        },
+        {
+          "type": "string",
+          "typeArgs": [
+            "cid",
+            500
+          ],
+          "name": "cid",
+          "primaryKey": false,
+          "unique": true
+        }
+      ],
+      "indexes": [
+        {
+          "indexName": "userLogin_user_ix",
+          "columns": [
+            "userId"
+          ]
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "tableName": "todo",
+      "columnName": "categoryId",
+      "referenceTableName": "category",
+      "referenceColumnName": "id",
+      "fkName": "todo_category_fk",
+      "onUpdate": "",
+      "onDelete": "CASCADE",
+      "schema": "echo"
+    },
+    {
+      "tableName": "todo",
+      "columnName": "userId",
+      "referenceTableName": "user",
+      "referenceColumnName": "id",
+      "fkName": "todo_user_fk",
+      "onUpdate": "",
+      "onDelete": "CASCADE",
+      "schema": "echo"
+    },
+    {
+      "tableName": "userLogin",
+      "columnName": "userId",
+      "referenceTableName": "user",
+      "referenceColumnName": "id",
+      "fkName": "userLogin_user_fk",
+      "onUpdate": "",
+      "onDelete": "CASCADE",
+      "schema": "echo"
+    }
+  ],
+  "constraints": [
+    {
+      "type": "integer",
+      "typeArgs": [
+        "categoryId"
+      ],
+      "name": "categoryId",
+      "primaryKey": false,
+      "schema": "echo",
+      "tableName": "todo",
+      "constraintType": "NOT_NULL"
+    },
+    {
+      "type": "integer",
+      "typeArgs": [
+        "userId"
+      ],
+      "name": "userId",
+      "primaryKey": false,
+      "schema": "echo",
+      "tableName": "todo",
+      "constraintType": "NOT_NULL"
+    },
+    {
+      "type": "string",
+      "typeArgs": [
+        "loginName",
+        400
+      ],
+      "name": "loginName",
+      "primaryKey": false,
+      "schema": "echo",
+      "tableName": "userLogin",
+      "constraintType": "NOT_NULL"
+    },
+    {
+      "type": "integer",
+      "typeArgs": [
+        "userId"
+      ],
+      "name": "userId",
+      "primaryKey": false,
+      "schema": "echo",
+      "tableName": "userLogin",
+      "constraintType": "NOT_NULL"
+    }
+  ],
+  "cleanSchema": [
+    {
+      "cmd": "DROP SCHEMA IF EXISTS ?? CASCADE",
+      "bindings": [
+        "echo"
+      ]
+    },
+    {
+      "cmd": "CREATE SCHEMA ?? ",
+      "bindings": [
+        "echo"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "cmd": "\nCREATE FUNCTION \"echo\".\"tcf_todo\"()\n    RETURNS trigger\n    LANGUAGE 'plpgsql'\n    NOT LEAKPROOF \nAS $BODY$\nBEGIN\n    UPDATE \"typeUpdate\" \n    SET \"lastUpdated\" = current_timestamp\n    WHERE \"code\" = 'todo';\n    RETURN NEW;\nEND;\n$BODY$",
+      "bindings": []
+    },
+    {
+      "cmd": "\nCREATE FUNCTION \"echo\".\"tcf_user\"()\n    RETURNS trigger\n    LANGUAGE 'plpgsql'\n    NOT LEAKPROOF \nAS $BODY$\nBEGIN\n    UPDATE \"typeUpdate\" \n    SET \"lastUpdated\" = current_timestamp\n    WHERE \"code\" = 'user';\n    RETURN NEW;\nEND;\n$BODY$",
+      "bindings": []
+    },
+    {
+      "cmd": "\nCREATE FUNCTION \"echo\".\"tcf_category\"()\n    RETURNS trigger\n    LANGUAGE 'plpgsql'\n    NOT LEAKPROOF \nAS $BODY$\nBEGIN\n    UPDATE \"typeUpdate\" \n    SET \"lastUpdated\" = current_timestamp\n    WHERE \"code\" = 'category';\n    RETURN NEW;\nEND;\n$BODY$",
+      "bindings": []
+    },
+    {
+      "cmd": "\nCREATE FUNCTION \"echo\".\"tcf_userLogin\"()\n    RETURNS trigger\n    LANGUAGE 'plpgsql'\n    NOT LEAKPROOF \nAS $BODY$\nBEGIN\n    UPDATE \"typeUpdate\" \n    SET \"lastUpdated\" = current_timestamp\n    WHERE \"code\" = 'userLogin';\n    RETURN NEW;\nEND;\n$BODY$",
+      "bindings": []
+    }
+  ],
+  "triggers": [
+    {
+      "cmd": "\nCREATE TRIGGER \"tcu_todo\"\nAFTER INSERT OR DELETE OR UPDATE \nON \"echo\".\"todo\"\nFOR EACH STATEMENT\nEXECUTE PROCEDURE \"echo\".\"tcf_todo\"()\n                ",
+      "bindings": []
+    },
+    {
+      "cmd": "\nCREATE TRIGGER \"tcu_user\"\nAFTER INSERT OR DELETE OR UPDATE \nON \"echo\".\"user\"\nFOR EACH STATEMENT\nEXECUTE PROCEDURE \"echo\".\"tcf_user\"()\n                ",
+      "bindings": []
+    },
+    {
+      "cmd": "\nCREATE TRIGGER \"tcu_category\"\nAFTER INSERT OR DELETE OR UPDATE \nON \"echo\".\"category\"\nFOR EACH STATEMENT\nEXECUTE PROCEDURE \"echo\".\"tcf_category\"()\n                ",
+      "bindings": []
+    },
+    {
+      "cmd": "\nCREATE TRIGGER \"tcu_userLogin\"\nAFTER INSERT OR DELETE OR UPDATE \nON \"echo\".\"userLogin\"\nFOR EACH STATEMENT\nEXECUTE PROCEDURE \"echo\".\"tcf_userLogin\"()\n                ",
+      "bindings": []
+    }
+  ],
+  "initSql": [
+    {
+      "cmd": "INSERT INTO \"echo\".\"typeUpdate\" (\"code\", \"lastUpdated\") VALUES (?, current_timestamp)",
+      "bindings": [
+        "todo"
+      ]
+    },
+    {
+      "cmd": "INSERT INTO \"echo\".\"typeUpdate\" (\"code\", \"lastUpdated\") VALUES (?, current_timestamp)",
+      "bindings": [
+        "user"
+      ]
+    },
+    {
+      "cmd": "INSERT INTO \"echo\".\"typeUpdate\" (\"code\", \"lastUpdated\") VALUES (?, current_timestamp)",
+      "bindings": [
+        "category"
+      ]
+    },
+    {
+      "cmd": "INSERT INTO \"echo\".\"typeUpdate\" (\"code\", \"lastUpdated\") VALUES (?, current_timestamp)",
+      "bindings": [
+        "userLogin"
+      ]
+    }
+  ]
+}

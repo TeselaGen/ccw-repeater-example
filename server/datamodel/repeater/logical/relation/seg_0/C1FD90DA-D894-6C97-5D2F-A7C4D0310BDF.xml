@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="User-hasMany-Todos" directorySegmentName="seg_0" id="C1FD90DA-D894-6C97-5D2F-A7C4D0310BDF">
+<createdBy>colin</createdBy>
+<createdTime>2019-04-12 20:21:44 UTC</createdTime>
+<ownerDesignName>repeater</ownerDesignName>
+<engineerTo>
+<item key="C77AA59D-128D-E7BC-E58E-A5A2A139E325" value="true"/>
+</engineerTo>
+<sourcePk>13903639-3806-D717-135C-EFE5473D639E</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>EDBADE89-F192-7DA8-F7C4-B635D59164F9</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C30E57EE-E986-D2B9-F900-C96ACCFE4E8E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

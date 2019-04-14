@@ -1,0 +1,642 @@
+{
+  "TypeUpdate": {
+    "attributes": {
+      "code": {
+        "name": "code",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": true,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": false,
+        "autoIncrement": false,
+        "columnName": "code"
+      },
+      "lastUpdated": {
+        "name": "lastUpdated",
+        "dataType": "Timestamp",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "lastUpdated"
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "createdAt",
+        "timestamp": "created"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "updatedAt",
+        "timestamp": "modified"
+      },
+      "cid": {
+        "name": "cid",
+        "dataType": "VARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "500",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": true,
+        "columnName": "cid"
+      }
+    },
+    "primaryKeyField": "code",
+    "indexes": [],
+    "modelName": "typeUpdate",
+    "tableName": "typeUpdate",
+    "modelAttributes": {
+      "code": true,
+      "lastUpdated": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true
+    },
+    "columnNames": {
+      "code": true,
+      "lastUpdated": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true
+    }
+  },
+  "Todo": {
+    "tableName": "todo",
+    "attributes": {
+      "Description": {
+        "name": "description",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "4000",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "description"
+      },
+      "id": {
+        "name": "id",
+        "dataType": "NUMERIC",
+        "isPrimaryKey": true,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "comment": "This is the unique identifier, obviously",
+        "nullable": false,
+        "autoIncrement": true,
+        "columnName": "id"
+      },
+      "Name": {
+        "name": "name",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "name"
+      },
+      "Status": {
+        "name": "status",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "status"
+      },
+      "Category_id": {
+        "name": "categoryId",
+        "dataType": "NUMERIC",
+        "isPrimaryKey": false,
+        "isForeignKey": true,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": false,
+        "referenceName": "Category",
+        "referenceKey": "id",
+        "referenceIdentifying": false,
+        "referenceIsPlural": true,
+        "columnName": "categoryId",
+        "fkName": "todo_category_fk",
+        "relAttrName": "category"
+      },
+      "User_id": {
+        "name": "userId",
+        "dataType": "NUMERIC",
+        "isPrimaryKey": false,
+        "isForeignKey": true,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": false,
+        "referenceName": "User",
+        "referenceKey": "id",
+        "referenceIdentifying": false,
+        "referenceIsPlural": true,
+        "columnName": "userId",
+        "fkName": "todo_user_fk",
+        "relAttrName": "user"
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "createdAt",
+        "timestamp": "created"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "updatedAt",
+        "timestamp": "modified"
+      },
+      "cid": {
+        "name": "cid",
+        "dataType": "VARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "500",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": true,
+        "columnName": "cid"
+      }
+    },
+    "associations": [],
+    "primaryKeyField": "id",
+    "indexes": [
+      {
+        "attributes": [
+          "Category_id"
+        ],
+        "name": "todo_category_ix",
+        "columns": [
+          "categoryId"
+        ]
+      },
+      {
+        "attributes": [
+          "User_id"
+        ],
+        "name": "todo_user_ix",
+        "columns": [
+          "userId"
+        ]
+      }
+    ],
+    "modelName": "todo",
+    "modelAttributes": {
+      "description": true,
+      "id": true,
+      "name": true,
+      "status": true,
+      "categoryId": true,
+      "userId": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true,
+      "category": true,
+      "user": true
+    },
+    "columnNames": {
+      "description": true,
+      "id": true,
+      "name": true,
+      "status": true,
+      "categoryId": true,
+      "userId": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true
+    }
+  },
+  "User": {
+    "tableName": "user",
+    "attributes": {
+      "email": {
+        "name": "email",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "email"
+      },
+      "firstName": {
+        "name": "firstName",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "firstName"
+      },
+      "id": {
+        "name": "id",
+        "dataType": "NUMERIC",
+        "isPrimaryKey": true,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": false,
+        "autoIncrement": true,
+        "columnName": "id"
+      },
+      "lastName": {
+        "name": "lastName",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "lastName"
+      },
+      "username": {
+        "name": "username",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "username"
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "createdAt",
+        "timestamp": "created"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "updatedAt",
+        "timestamp": "modified"
+      },
+      "cid": {
+        "name": "cid",
+        "dataType": "VARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "500",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": true,
+        "columnName": "cid"
+      }
+    },
+    "associations": [
+      {
+        "isPlural": true,
+        "name": "userLogins",
+        "referenceName": "UserLogin",
+        "referenceKey": "User_id"
+      },
+      {
+        "isPlural": true,
+        "name": "todos",
+        "referenceName": "Todo",
+        "referenceKey": "User_id"
+      }
+    ],
+    "primaryKeyField": "id",
+    "indexes": [],
+    "modelName": "user",
+    "modelAttributes": {
+      "email": true,
+      "firstName": true,
+      "id": true,
+      "lastName": true,
+      "username": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true,
+      "userLogins": true,
+      "userLoginsCursor": true,
+      "todos": true,
+      "todosCursor": true
+    },
+    "columnNames": {
+      "email": true,
+      "firstName": true,
+      "id": true,
+      "lastName": true,
+      "username": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true
+    }
+  },
+  "Category": {
+    "tableName": "category",
+    "attributes": {
+      "id": {
+        "name": "id",
+        "dataType": "NUMERIC",
+        "isPrimaryKey": true,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": false,
+        "autoIncrement": true,
+        "columnName": "id"
+      },
+      "Name": {
+        "name": "name",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "name"
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "createdAt",
+        "timestamp": "created"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "updatedAt",
+        "timestamp": "modified"
+      },
+      "cid": {
+        "name": "cid",
+        "dataType": "VARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "500",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": true,
+        "columnName": "cid"
+      }
+    },
+    "associations": [
+      {
+        "isPlural": true,
+        "name": "todos",
+        "referenceName": "Todo",
+        "referenceKey": "Category_id"
+      }
+    ],
+    "primaryKeyField": "id",
+    "indexes": [],
+    "modelName": "category",
+    "modelAttributes": {
+      "id": true,
+      "name": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true,
+      "todos": true,
+      "todosCursor": true
+    },
+    "columnNames": {
+      "id": true,
+      "name": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true
+    }
+  },
+  "UserLogin": {
+    "tableName": "userLogin",
+    "attributes": {
+      "loginName": {
+        "name": "loginName",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": false,
+        "columnName": "loginName"
+      },
+      "loginPassword": {
+        "name": "loginPassword",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "loginPassword"
+      },
+      "token": {
+        "name": "token",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "token"
+      },
+      "loginType": {
+        "name": "loginType",
+        "dataType": "NVARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "400",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "columnName": "loginType"
+      },
+      "User_id": {
+        "name": "userId",
+        "dataType": "NUMERIC",
+        "isPrimaryKey": false,
+        "isForeignKey": true,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": false,
+        "referenceName": "User",
+        "referenceKey": "id",
+        "referenceIdentifying": false,
+        "referenceIsPlural": true,
+        "columnName": "userId",
+        "fkName": "userLogin_user_fk",
+        "relAttrName": "user"
+      },
+      "id": {
+        "name": "id",
+        "dataType": "NUMERIC",
+        "isPrimaryKey": true,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "comment": "primary key",
+        "nullable": false,
+        "autoIncrement": true,
+        "columnName": "id"
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "createdAt",
+        "timestamp": "created"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "dataType": "TIMESTAMP",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": false,
+        "columnName": "updatedAt",
+        "timestamp": "modified"
+      },
+      "cid": {
+        "name": "cid",
+        "dataType": "VARCHAR",
+        "isPrimaryKey": false,
+        "isForeignKey": false,
+        "size": "500",
+        "precision": "",
+        "scale": "",
+        "nullable": true,
+        "unique": true,
+        "columnName": "cid"
+      }
+    },
+    "associations": [],
+    "primaryKeyField": "id",
+    "indexes": [
+      {
+        "attributes": [
+          "User_id"
+        ],
+        "name": "userLogin_user_ix",
+        "columns": [
+          "userId"
+        ]
+      }
+    ],
+    "modelName": "userLogin",
+    "modelAttributes": {
+      "loginName": true,
+      "loginPassword": true,
+      "token": true,
+      "loginType": true,
+      "userId": true,
+      "id": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true,
+      "user": true
+    },
+    "columnNames": {
+      "loginName": true,
+      "loginPassword": true,
+      "token": true,
+      "loginType": true,
+      "userId": true,
+      "id": true,
+      "createdAt": true,
+      "updatedAt": true,
+      "cid": true
+    }
+  }
+}
