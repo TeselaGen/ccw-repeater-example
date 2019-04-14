@@ -1,13 +1,13 @@
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import React from "react";
-import AddTodo from "./AddTodo";
+import React, { Component } from "react";
+import { AddTodo } from "./AddTodo";
 
-const ToDos = () => (
-  <Query
-    query={gql`
-      query myq {
-        todos {
+export class ToDos extends Component {
+  render() {
+    let QRY = gql`
+      query myToDoQ($page: Int) {
+        todos(pageSize: 10, pageNumber: $page) {
           results {
             id
             name
@@ -15,31 +15,34 @@ const ToDos = () => (
           }
         }
       }
-    `}
-  >
-    {({ loading, error, data, refetch, ...rest }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
+    `;
 
-      console.log(rest);
-      console.log(data);
+    let page = this.props.page;
+    return (
+      <Query query={QRY} variables={{ page }}>
+        {({ loading, error, data, refetch, ...rest }) => {
+          if (loading) return <p>Loading...</p>;
+          if (error) return <p>Error :( something went wrong </p>;
 
-      let todoList = data.todos.results.map(({ id, name, description }) => (
-        <div key={id}>
-          <p>
-            {name}: {description}
-          </p>
-        </div>
-      ));
+          console.log(rest);
+          console.log(data);
 
-      return (
-        <React.Fragment>
-          {todoList}
-          <AddTodo refetchTodos={refetch} />
-        </React.Fragment>
-      );
-    }}
-  </Query>
-);
+          let todoList = data.todos.results.map(({ id, name, description }) => (
+            <div key={id}>
+              <p>
+                {name}: {description}
+              </p>
+            </div>
+          ));
 
-export default ToDos;
+          return (
+            <React.Fragment>
+              {todoList}
+              {<AddTodo refetchTodos={refetch} />}
+            </React.Fragment>
+          );
+        }}
+      </Query>
+    );
+  }
+}

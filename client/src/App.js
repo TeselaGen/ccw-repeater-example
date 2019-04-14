@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import ToDos from "./components/ToDos";
 import "./App.css";
-import AddTodo from "./components/AddTodo";
+import { ToDos } from "./components/ToDos";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <ToDos />
+        <ToDos page={1} />
       </div>
     );
   }

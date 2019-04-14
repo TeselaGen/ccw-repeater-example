@@ -5,7 +5,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch",
-      "program": "${workspaceFolder}/server/repeater/app.js",
+      "program": "${workspaceFolder}/server/src/app.js",
       "env": {}
     }
   ]

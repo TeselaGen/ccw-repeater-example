@@ -1,0 +1,91 @@
+mutation CreateCategory($input: [createCategoryInput]) {
+  createCategory(input: $input) {
+    createdItemsCursor {
+      results {
+        id
+      }
+    }
+  }
+}
+ {
+  "input": [{ 
+ 		"name": "Work"
+  }, { "name":"Play" }
+  , {"name": "School" }
+  ]
+}
+
+mutation CreateUser($input: [createUserInput]) {
+  createUser(input: $input) {
+    createdItemsCursor {
+      results {
+        id
+      }
+    }
+  }
+}
+ {
+  "input": [{ 
+ 		"email": "colin.wilson@teselagen.com",
+    "firstName": "Colin",
+    "lastName": "Wilson", 
+    "username":"ccw"
+  }, { "email":"Noone@example.org",
+  "firstName":"Casper",
+  "lastName":"Ghost",
+  "username":"boo"}
+  ]  
+}
+
+mutation CreateTodos($input: [createTodoInput]) {
+  createTodo(input: $input) {
+    createdItemsCursor {
+      results {
+        id
+        createdAt
+      }
+    }
+  }
+}
+ {
+  "input": [{ 
+ 		"name": "Finish My Work Stuff",
+    "description": "Get Work stuff completed",
+    "status": "NotStarted",
+    "categoryId": "1", 
+    "userId":"1"
+  }, { 
+ 		"name": "Finish My Play Stuff",
+    "description": "Get Play stuff completed",
+    "status": "NotStarted",
+    "categoryId": "1", 
+    "userId":"1"
+  }, { 
+ 		"name": "Finish My School Stuff",
+    "description": "Get School stuff completed",
+    "status": "NotStarted",
+    "categoryId": "1", 
+    "userId":"1"
+  }, { 
+ 		"name": "Make a friend",
+    "description": "Find a friend that isn't scared",
+    "status": "Started",
+    "category": {
+      	"name": "Ghost"
+    },
+    "userId":"2"
+  }, { 
+ 		"name": "Scare People",
+    "description": "Scary Ghost Stuff",
+    "status": "Started",
+    "category": {
+      	"name": "Ghost"
+    },
+    "user": {
+      "username": "stretch",
+      "firstName": "Stretch",
+      "lastName": "Ghost"
+    }
+  }
+  ]  
+}
