@@ -4,14 +4,16 @@ import React, { Component } from "react";
 import { AddTodo } from "./AddTodo";
 
 export class ToDos extends Component {
-  render() {
-    let QRY = gql`
+  constructor(props) {
+    super(props);
+    this.myToDoQ = gql`
       query myToDoQ($pageSize: Int, $page: Int, $filter: JSON) {
         todos(pageSize: $pageSize, pageNumber: $page, filter: $filter) {
           results {
             id
             name
             description
+            status
             user {
               firstName
             }
@@ -19,12 +21,17 @@ export class ToDos extends Component {
         }
       }
     `;
+  }
 
+  render() {
     let page = this.props.page;
     let pageSize = 5;
-    let filter = { userId: [1] };
+    let filter = {
+      userId: [1],
+      status: ["Started", "NotStarted"]
+    };
     return (
-      <Query query={QRY} variables={{ pageSize, page, filter }}>
+      <Query query={this.myToDoQ} variables={{ pageSize, page, filter }}>
         {({ loading, error, data, refetch, ...rest }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error :( something went wrong </p>;
@@ -33,8 +40,8 @@ export class ToDos extends Component {
           console.log(data);
 
           let todoList = data.todos.results.map(
-            ({ id, user, name, description }) => (
-              <div key={id}>
+            ({ id, user, name, description, status }) => (
+              <div key={id} className={"Todo." + status}>
                 <p>
                   {name}: {description} ({user.firstName})
                 </p>
