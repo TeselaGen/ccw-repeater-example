@@ -3,33 +3,29 @@ import gql from "graphql-tag";
 import React, { Component } from "react";
 import { AddTodo } from "./AddTodo";
 
-export class ToDos extends Component {
-  constructor(props) {
-    super(props);
-    this.myToDoQ = gql`
-      query myToDoQ($pageSize: Int, $page: Int, $filter: JSON) {
-        todos(pageSize: $pageSize, pageNumber: $page, filter: $filter) {
-          results {
-            id
-            name
-            description
-            status
-            user {
-              firstName
-            }
-          }
+const myToDoQ = gql`
+  query myToDoQ($pageSize: Int, $page: Int, $filter: JSON) {
+    todos(pageSize: $pageSize, pageNumber: $page, filter: $filter) {
+      results {
+        id
+        name
+        description
+        status
+        user {
+          firstName
         }
       }
-    `;
+      totalResults
+    }
   }
+`;
 
+export class ToDos extends Component {
   LoadToDos({ loading, error, data, refetch, ...rest }) {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :( something went wrong </p>;
 
-    console.log(rest);
-    console.log(data);
-
+    let totalResults = data.todos.totalResults;
     let todoList = data.todos.results.map(
       ({ id, user, name, description, status }) => (
         <div key={id} className={"Todo." + status}>
@@ -42,6 +38,8 @@ export class ToDos extends Component {
 
     return (
       <React.Fragment>
+        Page: {this.props.page} of{" "}
+        {Math.ceil(totalResults / this.props.pageSize)}
         {todoList}
         {<AddTodo refetchTodos={refetch} />}
       </React.Fragment>
@@ -56,7 +54,7 @@ export class ToDos extends Component {
       status: ["Started", "NotStarted"]
     };
     return (
-      <Query query={this.myToDoQ} variables={{ pageSize, page, filter }}>
+      <Query query={myToDoQ} variables={{ pageSize, page, filter }}>
         {reactObj => {
           return this.LoadToDos(reactObj);
         }}
