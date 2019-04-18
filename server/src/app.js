@@ -56,10 +56,9 @@ getAppConfig()
       return dropAndSyncDatabase(app.get("appConfig"), undefined, {
         log: console.log
       });
-    } else if (process.env.TG_INIT_DB) {
+    } else {
       return initDb(app.get("appConfig"));
     }
-    return Promise.resolve();
   })
   .tap(() => {
     if (process.env.TG_INIT_DB) {
