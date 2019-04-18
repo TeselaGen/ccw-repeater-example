@@ -5,11 +5,11 @@ FROM node:10
 # RUN npm install -g yarn
 
 #INSTALL LIBAIO1 & UNZIP (NEEDED FOR STRONG-ORACLE)
-RUN apt-get update \
-  && apt-get install -y libaio1 \
-  && apt-get install -y build-essential \
-  && apt-get install -y unzip \
-  && apt-get install -y curl
+# RUN apt-get update \
+#   && apt-get install -y libaio1 \
+#   && apt-get install -y build-essential \
+#   && apt-get install -y unzip \
+#   && apt-get install -y curl
 
 #ADD ORACLE INSTANT CLIENT
 # RUN mkdir -p opt/oracle
@@ -37,6 +37,9 @@ RUN mkdir /app \
   && cd /app \
   WORKDIR /app
 COPY . .
+COPY .npmrc .npmrc
+COPY .npmrc server/.npmrc
+RUN ls -al
 RUN yarn docker-install
 # RUN (cd ./server && yarn add oracledb)
 

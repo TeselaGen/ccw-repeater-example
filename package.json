@@ -8,12 +8,13 @@
   "license": "MIT",
   "scripts": {
     "start": "(cd ./server && yarn start)",
-    "deps": "yarn --cwd ./client && yarn --cwd ./server",
+    "deps": "(cd ./client && yarn) && (cd ./server && yarn)",
     "build": "(cd ./client && rm -rf node_modules && yarn install --production=false && yarn build)",
     "npmrc-from-env": "env-cmd ./.env printenv NPMRC > .npmrc",
     "heroku-prebuild": "yarn && yarn npmrc-from-env",
     "heroku-postbuild": "(cd ./client && rm -rf node_modules && yarn install --production=false && yarn build) && (cd ./server && yarn install)",
     "docker-install": "yarn deps && yarn build",
+    "docker-run": "sh run-docker.sh",
     "docker-build": "yarn npmrc-from-env && sh build-docker.sh"
   },
   "engines": {
