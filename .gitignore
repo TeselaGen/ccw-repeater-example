@@ -38,3 +38,7 @@ client/build/
 .vscode/settings.json
 error.out
 server.out
+
+
+.npmrc 
+.env
