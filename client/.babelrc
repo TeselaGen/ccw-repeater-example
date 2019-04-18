@@ -1,6 +1,6 @@
 {
   "plugins": [
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-transform-runtime"
+    ["@babel/plugin-proposal-object-rest-spread", {}, "tg-plugin-1"],
+    ["@babel/plugin-transform-runtime", {}, "tg-plugin-2"]
   ]
 }

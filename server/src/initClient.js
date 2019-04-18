@@ -13,58 +13,59 @@ module.exports = function initClient(app, appConfig) {
   const pathToClientIndex = path.join(pathToClientDist, "index.html");
   const pathToClientEntryFile = path.join(pathToClient, "public/index.html");
 
-  let parcelConfig = {
-    outDir: pathToClientDist,
-    outFile: "index.html",
-    cacheDir: pathToClientCache,
-    watch: false,
-    hmr: false,
-    minify: true,
-    sourceMaps: process.env.CLIENT_SOURCEMAPS
-  };
+  // let parcelConfig = {
+  //   outDir: pathToClientDist,
+  //   outFile: "index.html",
+  //   cacheDir: pathToClientCache,
+  //   watch: false,
+  //   hmr: false,
+  //   minify: true,
+  //   sourceMaps: process.env.CLIENT_SOURCEMAPS
+  // };
 
-  if (clientMode === "dev" || clientMode === "development") {
-    parcelConfig = {
-      outDir: pathToClientDist,
-      outFile: "index.html",
-      cacheDir: pathToClientCache,
-      watch: true,
-      hmr: true,
-      minify: false,
-      sourceMaps: true
-    };
-    console.log("Serving development version of client");
-  } else {
-    console.log("Serving production version of client");
-  }
-
-  const Bundler = require("parcel-bundler");
-
-  const bundler = new Bundler(pathToClientEntryFile, parcelConfig);
-  app.use(historyAPIFallback());
-  app.use(bundler.middleware());
-  app.use(express.static(path.join(pathToClient, "public")));
   // if (clientMode === "dev" || clientMode === "development") {
-  //   const Bundler = require("parcel-bundler");
-  //   console.log("Serving development version of client");
-  //   let devConfig = {
+  //   parcelConfig = {
   //     outDir: pathToClientDist,
   //     outFile: "index.html",
-  //     cacheDir: pathToClientCache
+  //     cacheDir: pathToClientCache,
+  //     watch: true,
+  //     hmr: true,
+  //     minify: false,
+  //     sourceMaps: true
   //   };
-
-  //   const bundler = new Bundler(pathToClientEntryFile, devConfig);
-  //   app.use(historyAPIFallback());
-  //   app.use(bundler.middleware());
-  //   app.use(express.static(path.join(pathToClient, "public")));
+  //   console.log("Serving development version of client");
   // } else {
-  //   console.log(`Serving static version of client from ${pathToClientDist}`);
-  //   console.log(`Serving default document ${pathToClientIndex}`);
-
-  //   const staticClientMiddleware = express.static(pathToClientDist);
-  //   app.use("/", staticClientMiddleware);
-  //   app.get("*", function(req, res) {
-  //     res.sendFile(pathToClientIndex);
-  //   });
+  //   console.log("Serving production version of client");
   // }
+
+  // const Bundler = require("parcel-bundler");
+
+  // const bundler = new Bundler(pathToClientEntryFile, parcelConfig);
+  // app.use(historyAPIFallback());
+  // app.use(bundler.middleware());
+  // app.use(express.static(path.join(pathToClient, "public")));
+
+  if (clientMode === "dev" || clientMode === "development") {
+    const Bundler = require("parcel-bundler");
+    console.log("Serving development version of client");
+    let devConfig = {
+      outDir: pathToClientDist,
+      outFile: "index.html",
+      cacheDir: pathToClientCache
+    };
+
+    const bundler = new Bundler(pathToClientEntryFile, devConfig);
+    app.use(historyAPIFallback());
+    app.use(bundler.middleware());
+    app.use(express.static(path.join(pathToClient, "public")));
+  } else {
+    console.log(`Serving static version of client from ${pathToClientDist}`);
+    console.log(`Serving default document ${pathToClientIndex}`);
+
+    const staticClientMiddleware = express.static(pathToClientDist);
+    app.use("/", staticClientMiddleware);
+    app.get("*", function(req, res) {
+      res.sendFile(pathToClientIndex);
+    });
+  }
 };
