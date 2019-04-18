@@ -18,9 +18,9 @@
     "docker-build": "yarn npmrc-from-env && sh build-docker.sh"
   },
   "engines": {
-    "node": ">10.11.0",
-    "yarn": ">1.9.0",
-    "npm": ">6.4.1"
+    "node": ">=10.11.0",
+    "yarn": ">=1.9.0",
+    "npm": ">=6.4.1"
   },
   "devDependencies": {},
   "dependencies": {
