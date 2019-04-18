@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "ds": "refreshSchema=1 node app.js",
+    "ds": "refreshSchema=1 TG_INIT_DB=1 node ./src/app.js",
     "start": "node ./src/app.js",
     "init-pg": "sh ../scripts/reset_postgres.sh"
   },
   "dependencies": {
     "@teselagen/tgauth": "^1.8.0",
     "body-parser": "^1.18.3",
+    "connect-history-api-fallback": "^1.6.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
@@ -22,6 +23,7 @@
     "knex": "^0.16.3",
     "morgan": "~1.9.0",
     "oradm-to-gql": "^17.1.0",
+    "parcel-bundler": "^1.12.3",
     "pg": "^7.9.0",
     "pug": "^2.0.3"
   }

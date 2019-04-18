@@ -23,7 +23,10 @@ const myToDoQ = gql`
 export class ToDos extends Component {
   LoadToDos({ loading, error, data, refetch, ...rest }) {
     if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :( something went wrong </p>;
+    if (error) {
+      console.error(error);
+      return <p>Error :( something went wrong </p>;
+    }
 
     let totalResults = data.todos.totalResults;
     let todoList = data.todos.results.map(
