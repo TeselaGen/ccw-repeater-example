@@ -4,6 +4,7 @@ const dbName = process.env.DB_NAME || "postgres";
 const host = process.env.DB_HOST || "localhost";
 const user = process.env.DB_USER || "echo";
 const pass = process.env.DB_PASS || "ThisIsASecret";
+const port = process.env.DB_PORT || 5442;
 const appSchema = "echo";
 
 let dbConfig = {
@@ -16,6 +17,7 @@ let dbConfig = {
       host: host,
       user: user,
       password: pass,
+      port,
       database: "postgres" //this must be postgres in case the database has not yet been created
     },
     debug: true,
@@ -27,6 +29,7 @@ let dbConfig = {
       host: host,
       user: user,
       password: pass,
+      port,
       database: dbName
     },
     debug: true,

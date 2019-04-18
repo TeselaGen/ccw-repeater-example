@@ -1,0 +1,1 @@
+release: (cd ./server && yarn release-task)

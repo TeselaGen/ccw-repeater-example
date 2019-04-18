@@ -6,7 +6,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ToDos page={2} pageSize={7} />
+        <h1>ToDo App</h1>
+        <ToDos page={1} pageSize={7} />
       </div>
     );
   }

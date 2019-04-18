@@ -1,0 +1,24 @@
+{
+  "name": "ccw-repeater-example",
+  "version": "1.0.0",
+  "description": "Example for testing proxy info",
+  "main": "index.js",
+  "repository": "https://github.com/TeselaGen/ccw-repeater-example.git",
+  "author": "TeselaGen",
+  "license": "MIT",
+  "scripts": {
+    "start": "(cd ./server && yarn start)",
+    "npmrc-from-env": "env-cmd ./.env printenv NPMRC > .npmrc",
+    "heroku-prebuild": "yarn && yarn npmrc-from-env",
+    "heroku-postbuild": "(cd ./client && rm -rf node_modules && yarn install --production=false && yarn build) && (cd ./server && yarn install)"
+  },
+  "engines": {
+    "node": "10.11.0",
+    "yarn": "1.13.0",
+    "npm": "6.4.1"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "env-cmd": "^8.0.2"
+  }
+}

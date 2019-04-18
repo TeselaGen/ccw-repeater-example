@@ -4,13 +4,25 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const Promise = require("bluebird");
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const UserCreator = require("./auth/UserCreator");
+const dotenv = require("dotenv");
+const fse = require("fs-extra");
+const initClient = require("./initClient");
+const initDb = require("./initDb");
+const envFilePath = path.resolve(__dirname, "../.env");
+if (fse.existsSync(envFilePath)) {
+  console.log(`Loading environment variables from ${envFilePath}`);
+  dotenv.config({ path: envFilePath });
+} else {
+  console.log(
+    `${envFilePath} not found! Not loading any environment variables from file`
+  );
+}
+
 const { graphqlExpress, graphiqlExpress } = require("graphql-server-express");
-const initAuthManager = require("./auth/initAuthManager");
+//const initAuthManager = require("./auth/initAuthManager");
 
 const {
   refreshSchema,
@@ -45,6 +57,15 @@ getAppConfig()
       return dropAndSyncDatabase(app.get("appConfig"), undefined, {
         log: console.log
       });
+    } else if (process.env.TG_INIT_DB) {
+      return initDb(app.get("appConfig"));
+    }
+    return Promise.resolve();
+  })
+  .tap(() => {
+    if (process.env.TG_INIT_DB) {
+      console.log("Exiting because TG_INIT_DB is set");
+      process.exit();
     }
     return Promise.resolve();
   })
@@ -61,32 +82,27 @@ getAppConfig()
     });
     app.set("gqlSchema", gqlSchema);
 
-    // cors TODO make less broad
-    app.use(
-      cors({
-        credentials: true,
-        origin: true
-      })
-    );
-    // Handle CORS Pre-flight request
-    app.options(
-      "*",
-      cors({
-        origin: true
-      })
-    );
-    // view engine setup
-    app.set("views", path.join(__dirname, "views"));
-    app.set("view engine", "pug");
+    if (process.env.CORS) {
+      // cors TODO make less broad
+      app.use(
+        cors({
+          credentials: true,
+          origin: true
+        })
+      );
+      // Handle CORS Pre-flight request
+      app.options(
+        "*",
+        cors({
+          origin: true
+        })
+      );
+    }
 
     app.use(logger("dev"));
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
-    app.use(cookieParser());
-    app.use(express.static(path.join(__dirname, "public")));
-    authManager = initAuthManager(app);
-    const userCreator = new UserCreator(app.get("db"));
-    authManager.addUserSignupToExpressApp(app, userCreator);
+    //initAuthManager(app);
 
     // add endpoints
     app.use("/graphql", graphqlExpress({ schema: gqlSchema }));
@@ -94,8 +110,8 @@ getAppConfig()
       "/graphiql",
       graphiqlExpress({ endpointURL: "http://localhost:3000/graphql" })
     );
-    app.use("/users", usersRouter);
-    app.use("/*", indexRouter);
+
+    initClient(app, appConfig);
 
     // catch 404 and forward to error handler
     app.use(function(req, res, next) {
@@ -108,9 +124,10 @@ getAppConfig()
       res.locals.message = err.message;
       res.locals.error = req.app.get("env") === "development" ? err : {};
 
+      console.error(err);
       // render the error page
       res.status(err.status || 500);
-      res.render("error");
+      res.send("error: " + err.message);
     });
     return Promise.resolve(authManager);
   })
@@ -196,9 +213,11 @@ getAppConfig()
      */
 
     function onListening() {
-      var addr = server.address();
-      var bind =
-        typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-      debug("Listening on " + bind);
+      if (process.platform === "darwin" && !process.env.NGROK) {
+        console.log(`Server running at http://localhost:${port}/`);
+      } else {
+        let hostUrl = process.env.HOST_URL;
+        console.log(`Server running at ${hostUrl}`);
+      }
     }
   });

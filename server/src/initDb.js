@@ -1,6 +1,6 @@
 const knex = require("knex");
 const { refreshSchema, dropAndSyncDatabase } = require("oradm-to-gql");
-const extendTableMap = require("../extendTableMap");
+const extendTableMap = require("./extendTableMap");
 
 module.exports = async function initDb(appConfig) {
   if (process.env.TG_INIT_DB) {
