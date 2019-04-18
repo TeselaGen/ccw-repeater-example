@@ -25,5 +25,6 @@
   "devDependencies": {},
   "dependencies": {
     "env-cmd": "^8.0.2"
-  }
+  },
+  "engineStrict": false
 }

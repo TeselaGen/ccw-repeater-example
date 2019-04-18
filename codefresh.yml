@@ -6,7 +6,7 @@ steps:
   #   repo: TeselaGen/ccw-repeater-example
   gen_npmrc:
     title: "Generate .npmrc from env vars"
-    image: node:10
+    image: node:10.11.0
     commands:
       - pwd
       - ls -al
