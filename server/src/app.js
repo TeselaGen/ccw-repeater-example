@@ -8,7 +8,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+const UserCreator = require("./auth/UserCreator");
 const { graphqlExpress, graphiqlExpress } = require("graphql-server-express");
 const initAuthManager = require("./auth/initAuthManager");
 
@@ -84,7 +84,9 @@ getAppConfig()
     app.use(express.urlencoded({ extended: false }));
     app.use(cookieParser());
     app.use(express.static(path.join(__dirname, "public")));
-    initAuthManager(app);
+    authManager = initAuthManager(app);
+    const userCreator = new UserCreator(app.get("db"));
+    authManager.addUserSignupToExpressApp(app, userCreator);
 
     // add endpoints
     app.use("/graphql", graphqlExpress({ schema: gqlSchema }));
@@ -110,7 +112,7 @@ getAppConfig()
       res.status(err.status || 500);
       res.render("error");
     });
-    return Promise.resolve();
+    return Promise.resolve(authManager);
   })
   .tap(app => {
     //app.listen(3000);

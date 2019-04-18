@@ -8,7 +8,7 @@
     "init-pg": "sh ../../scripts/reset_postgres.sh"
   },
   "dependencies": {
-    "@teselagen/tgauth": "^1.5.0",
+    "@teselagen/tgauth": "^1.8.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",

@@ -1,5 +1,5 @@
 const UserLoginProvider = require("./UserLoginProvider");
-const { AuthManager, AuthProviderTypes } = require("@teselagen/tgauth");
+const { authManager, AuthProviderTypes } = require("@teselagen/tgauth");
 
 function initAuthManager(express) {
   const localAuthProvider = {
@@ -14,9 +14,11 @@ function initAuthManager(express) {
   const authProviders = [localAuthProvider, azureAuthProvider];
   const userProvider = new UserLoginProvider(express);
 
-  const authManager = new AuthManager(userProvider, authProviders);
+  authManager.initialize(userProvider, authProviders);
 
   authManager.addAuthToExpressApp(express);
+
+  return authManager;
 }
 
 module.exports = initAuthManager;
