@@ -8,7 +8,8 @@
     "json5": "^2.1.0",
     "react": "^16.8.6",
     "react-apollo": "^2.5.4",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "url": "^0.11.0"
   },
   "scripts": {
     "build": "rm -rf ./dist && rm -rf ./.cache && parcel build ./public/index.html",
