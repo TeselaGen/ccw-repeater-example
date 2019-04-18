@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
 const historyAPIFallback = require("connect-history-api-fallback");
-const Bundler = require("parcel-bundler");
 
 module.exports = function initClient(app, appConfig) {
   const clientMode = appConfig.web.clientMode;
@@ -15,6 +14,7 @@ module.exports = function initClient(app, appConfig) {
   const pathToClientEntryFile = path.join(pathToClient, "public/index.html");
 
   if (clientMode === "dev" || clientMode === "development") {
+    const Bundler = require("parcel-bundler");
     console.log("Serving development version of client");
     let devConfig = {
       outDir: pathToClientDist,
