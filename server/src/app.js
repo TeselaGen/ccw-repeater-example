@@ -6,7 +6,6 @@ const logger = require("morgan");
 const Promise = require("bluebird");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const UserCreator = require("./auth/UserCreator");
 const dotenv = require("dotenv");
 const fse = require("fs-extra");
 const initClient = require("./initClient");
@@ -22,7 +21,7 @@ if (fse.existsSync(envFilePath)) {
 }
 
 const { graphqlExpress, graphiqlExpress } = require("graphql-server-express");
-//const initAuthManager = require("./auth/initAuthManager");
+const initAuthManager = require("./auth/initAuthManager");
 
 const {
   refreshSchema,
@@ -101,8 +100,7 @@ getAppConfig()
 
     app.use(logger("dev"));
     app.use(express.json());
-    app.use(express.urlencoded({ extended: false }));
-    //initAuthManager(app);
+    initAuthManager(app);
 
     // add endpoints
     app.use("/graphql", graphqlExpress({ schema: gqlSchema }));

@@ -1,5 +1,6 @@
 const UserLoginProvider = require("./UserLoginProvider");
 const { authManager, AuthProviderTypes } = require("@teselagen/tgauth");
+const UserCreator = require("./UserCreator");
 
 function initAuthManager(express) {
   const localAuthProvider = {
@@ -17,6 +18,9 @@ function initAuthManager(express) {
   authManager.initialize(userProvider, authProviders);
 
   authManager.addAuthToExpressApp(express);
+
+  const userCreator = new UserCreator(express.get("db"));
+  authManager.addUserSignupToExpressApp(express, userCreator);
 
   return authManager;
 }
