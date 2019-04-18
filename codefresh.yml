@@ -5,7 +5,7 @@ steps:
     title: Clone ccw-repeater-example from GitHub
     repo: TeselaGen/ccw-repeater-example
   gen_npmrc:
-    type: "Generate .npmrc from env vars"
+    title: "Generate .npmrc from env vars"
     image: node:10
     commands:
       - pwd
