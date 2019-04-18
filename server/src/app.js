@@ -9,7 +9,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const fse = require("fs-extra");
 const initClient = require("./initClient");
-
+const initDb = require("./initDb");
 const envFilePath = path.resolve(__dirname, "../.env");
 if (fse.existsSync(envFilePath)) {
   console.log(`Loading environment variables from ${envFilePath}`);
@@ -56,6 +56,8 @@ getAppConfig()
       return dropAndSyncDatabase(app.get("appConfig"), undefined, {
         log: console.log
       });
+    } else if (process.env.TG_INIT_DB) {
+      return initDb(app.get("appConfig"));
     }
     return Promise.resolve();
   })
