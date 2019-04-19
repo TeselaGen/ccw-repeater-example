@@ -34,6 +34,7 @@ const { makeExecutableSchema } = require("graphql-tools");
 
 const debug = require("debug")("repeater:server");
 const http = require("http");
+const truncateAndSeed = require("./truncateAndSeed");
 
 const getAppConfig = require("./config-loader");
 getAppConfig()
@@ -57,7 +58,13 @@ getAppConfig()
         log: console.log
       });
     } else if (process.env.TG_INIT_DB) {
-      return initDb(app.get("appConfig"));
+      initDb(app.get("appConfig"));
+    }
+    return Promise.resolve();
+  })
+  .tap(app => {
+    if (process.env.TG_INIT_DB) {
+      return truncateAndSeed(app.get("appConfig"));
     }
     return Promise.resolve();
   })
