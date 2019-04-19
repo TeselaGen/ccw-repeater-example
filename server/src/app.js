@@ -134,7 +134,7 @@ getAppConfig()
       res.status(err.status || 500);
       res.send("error: " + err.message);
     });
-    return Promise.resolve(authManager);
+    return Promise.resolve();
   })
   .tap(app => {
     //app.listen(3000);

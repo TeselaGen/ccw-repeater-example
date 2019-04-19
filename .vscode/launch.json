@@ -7,6 +7,13 @@
       "name": "Launch",
       "program": "${workspaceFolder}/server/src/app.js",
       "env": {}
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch INIT",
+      "program": "${workspaceFolder}/server/src/app.js",
+      "env": { "TG_INIT_DB": "1" }
     }
   ]
 }
