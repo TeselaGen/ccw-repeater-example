@@ -14,10 +14,12 @@
   },
   "engines": {
     "node": "10.11.0",
-    "yarn": "1.13.0",
+    "yarn": "1.15.2",
     "npm": "6.4.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cypress": "^3.2.0"
+  },
   "dependencies": {
     "env-cmd": "^8.0.2"
   }
