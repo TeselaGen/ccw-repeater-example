@@ -3,7 +3,7 @@ const { refreshSchema, dropAndSyncDatabase } = require("oradm-to-gql");
 const extendTableMap = require("./extendTableMap");
 
 module.exports = async function initDb(appConfig) {
-  if (process.env.TG_INIT_DB) {
+  if (process.env.TG_INIT_DB || process.env.AUTO_INIT_DB) {
     let watchdogTimeout = process.env.TG_WATCHDOG_TIMEOUT || 15;
     let timeoutInSecs = watchdogTimeout * 60 * 1000;
 
@@ -22,17 +22,27 @@ module.exports = async function initDb(appConfig) {
         db: { appSchema }
       } = appConfig;
 
-      const db = knex({
-        client: "pg",
-        connection:
-          process.env.DATABASE_URL +
-          (process.env.SKIP_PG_SSL ? "" : "?ssl=true")
-      });
+      let result;
+      let connected = false;
 
-      let result = await db.raw(
-        `select schema_name from information_schema.schemata where schema_name = '${appSchema}'`
-      );
-      console.log(result);
+      while (!connected) {
+        try {
+          const db = knex({
+            client: "pg",
+            connection:
+              process.env.DATABASE_URL +
+              (process.env.SKIP_PG_SSL ? "" : "?ssl=true")
+          });
+
+          result = await db.raw(
+            `select schema_name from information_schema.schemata where schema_name = '${appSchema}'`
+          );
+          console.log(result);
+          connected = true;
+        } catch (error) {
+          console.warn(error);
+        }
+      }
 
       let exists = result && result.rows && result.rows.length === 1;
 

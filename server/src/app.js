@@ -65,8 +65,9 @@ getAppConfig()
   .tap(app => {
     if (process.env.TG_INIT_DB) {
       return truncateAndSeed(app.get("appConfig"));
+    } else {
+      return initDb(app.get("appConfig"));
     }
-    return Promise.resolve();
   })
   .tap(() => {
     if (process.env.TG_INIT_DB) {
@@ -218,6 +219,7 @@ getAppConfig()
      */
 
     function onListening() {
+      console.log(`Server listening on port: ${port}`);
       if (process.platform === "darwin" && !process.env.NGROK) {
         console.log(`Server running at http://localhost:${port}/`);
       } else {

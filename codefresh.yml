@@ -1,0 +1,25 @@
+version: "1.0"
+steps:
+  # git_clone:
+  #   type: git-clone
+  #   title: Clone ccw-repeater-example from GitHub
+  #   repo: TeselaGen/ccw-repeater-example
+  gen_npmrc:
+    title: "Generate .npmrc from env vars"
+    image: node:10.11.0
+    commands:
+      - pwd
+      - ls -al
+      - yarn
+      - yarn npmrc-from-env
+      - ls -al
+    working_directory: ${{main_clone}}
+  build_image:
+    title: Building Image
+    type: build
+    #Important: rename this image to to a valid repository in your registry. For example: myUserName/vote
+    image_name: teselagen/ccw-repeater
+    #The directory should be relative to git repository that is used for cloning
+    working_directory: ${{main_clone}}
+    #Dockerfile location should be relative to the working directory
+    dockerfile: Dockerfile

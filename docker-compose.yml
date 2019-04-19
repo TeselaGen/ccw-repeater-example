@@ -1,0 +1,23 @@
+version: "2.0"
+services:
+  app:
+    image: teselagen/ccw-repeater
+    restart: always
+    environment:
+      PORT: 3000
+      CLIENT_MODE: prod
+      AUTO_INIT_DB: 1
+      SKIP_PG_SSL: 1
+      DATABASE_URL: postgres://echo:ThisIsASecret@pg_db:5432/postgres
+    ports:
+      - "3081:3000"
+    depends_on:
+      - pg_db
+  pg_db:
+    image: postgres:9.6-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: echo
+      POSTGRES_PASSWORD: ThisIsASecret
+    ports:
+      - "5443:5432"
