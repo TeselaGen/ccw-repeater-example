@@ -1,6 +1,13 @@
 {
   "name": "ccw-repeater-e2e-tests",
   "version": "1.0.0",
+  "scripts": {
+    "docker-install": "yarn && yarn cypress install",
+    "start": "yarn cypress run",
+    "docker-run": "sh run-docker.sh",
+    "docker-build": "sh build-docker.sh"
+
+  },
   "description": "End to end tests for ccw repeater",
   "main": "index.js",
   "license": "MIT",
