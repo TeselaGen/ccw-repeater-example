@@ -57,16 +57,14 @@ getAppConfig()
       return dropAndSyncDatabase(app.get("appConfig"), undefined, {
         log: console.log
       });
-    } else if (process.env.TG_INIT_DB) {
+    } else {
       initDb(app.get("appConfig"));
     }
     return Promise.resolve();
   })
   .tap(app => {
-    if (process.env.TG_INIT_DB) {
+    if (process.env.TG_INIT_DB || process.env.AUTO_INIT_DB) {
       return truncateAndSeed(app.get("appConfig"));
-    } else {
-      return initDb(app.get("appConfig"));
     }
   })
   .tap(() => {

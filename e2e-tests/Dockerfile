@@ -1,7 +1,7 @@
 # dockerfile to run cypress tests against the URL from another dockerfile/docker compose
 
 # INSTALL UBUNTU
-FROM node:10
+FROM cypress/browsers:node11.13.0-chrome73
 
 # set your port
 # ENV PORT 3000

@@ -1,6 +1,8 @@
 describe("addtodo", function() {
   it(`should add a todo`, () => {
-    cy.visit("http://localhost:3000");
+    const url = process.env.TEST_URL || "http://localhost:3000";
+
+    cy.visit(url);
 
     cy.get("input")
       .first()
