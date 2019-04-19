@@ -21,7 +21,7 @@ if (fse.existsSync(envFilePath)) {
 }
 
 const { graphqlExpress, graphiqlExpress } = require("graphql-server-express");
-const initAuthManager = require("./auth/initAuthManager");
+//const initAuthManager = require("./auth/initAuthManager");
 
 const {
   refreshSchema,
@@ -106,7 +106,7 @@ getAppConfig()
 
     app.use(logger("dev"));
     app.use(express.json());
-    initAuthManager(app);
+    //initAuthManager(app);
 
     // add endpoints
     app.use("/graphql", graphqlExpress({ schema: gqlSchema }));
