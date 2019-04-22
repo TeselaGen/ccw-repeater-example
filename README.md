@@ -44,5 +44,8 @@ where is the pipeline coming from ? -- TeselaGen/ccw-repeater-example/ccw-repeat
   - it is getting cloned down from codefresh
 where are images getting published to dockerhub/codefreshImages? 
   - from the codefresh.yml build step  
+  
 do we need to specifically "start" the newly built images?
-where should we run 
+where should we run the cypress test command from? 
+how do we run a docker-compose.yml file with codefresh?
+it appears that the codefresh pipeline branch regex is not working correctly -- master is getting run for all commits

@@ -32,4 +32,49 @@ steps:
     working_directory: ${{main_clone}}/e2e-tests
     #Dockerfile location should be relative to the working directory
     dockerfile: Dockerfile
+  run_app_and_tests: 
+    type: composition
+    composition-candidates: 
+      cypress_tests: 
+        image: ${{build_cypress_image}}
+        environment:
+            TEST_URL: http://app:3000
+    composition:
+      version: '2'
+      services:
+        app:
+          image: ${{build_image}}
+          environment:
+            PORT: 3000
+            CLIENT_MODE: prod
+            AUTO_INIT_DB: 1
+            SKIP_PG_SSL: 1
+            DATABASE_URL: postgres://echo:ThisIsASecret@pg_db:5432/postgres
+          ports:
+            - "3081:3000"
+          depends_on:
+            - pg_db
+        pg_db:
+          image: postgres:9.6-alpine
+          restart: always
+          environment:
+            POSTGRES_USER: echo
+            POSTGRES_PASSWORD: ThisIsASecret
+          ports:
+            - "5443:5432"
+    fail_fast: false
+    # when:
+    #   condition:
+    #     all:
+    #       notFeatureBranch: 'match("${{CF_BRANCH}}", "/FB-/", true) == false'
+    # on_success:
+    #   ...
+    # on_fail:
+    #   ...
+    # on_finish:
+    #   ...
+    # retry:
+    #   ...    
+
+
   
