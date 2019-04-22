@@ -50,8 +50,8 @@ steps:
             AUTO_INIT_DB: 1
             SKIP_PG_SSL: 1
             DATABASE_URL: postgres://echo:ThisIsASecret@pg_db:5432/postgres
-          ports:
-            - "3081:3000"
+          # ports:
+          #   - "3081:3000"
           depends_on:
             - pg_db
         pg_db:
@@ -60,8 +60,8 @@ steps:
           environment:
             POSTGRES_USER: echo
             POSTGRES_PASSWORD: ThisIsASecret
-          ports:
-            - "5443:5432"
+          # ports:
+          #   - "5443:5432"
     fail_fast: false
     # when:
     #   condition:
