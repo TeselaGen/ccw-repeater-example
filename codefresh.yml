@@ -23,7 +23,7 @@ steps:
     working_directory: ${{main_clone}}
     #Dockerfile location should be relative to the working directory
     dockerfile: Dockerfile
-  build_image:
+  build_cypress_image:
     title: Building Cypress Image
     type: build
     #Important: rename this image to to a valid repository in your registry. For example: myUserName/vote
