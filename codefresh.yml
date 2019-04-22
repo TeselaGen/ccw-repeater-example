@@ -34,7 +34,7 @@ steps:
     dockerfile: Dockerfile
   run_app_and_tests: 
     type: composition
-    composition-candidates: 
+    composition_candidates: 
       cypress_tests: 
         image: ${{build_cypress_image}}
         environment:
