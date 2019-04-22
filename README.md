@@ -24,3 +24,25 @@ you can inspect the server at:
 ```
 localhost:3001/postgres
 ```
+
+
+## Running codefresh locally: 
+- codefresh auth create-context --api-key 5cba1bef36f74f01002ea96a.694eaad6312946465680bc2c91089ad0
+- codefresh get pipelines
+- codefresh run TeselaGen/ccw-repeater-example/ccw-repeater-example --local -b master
+
+
+## How the whole process works: 
+ - add some new code, add a new cypress test for that
+ - they'll push a new branch with that code and PR it 
+ - that should trigger codefresh to start a new "build" 
+ - that build should get the new code and run the app and run the cypress tests against it
+
+
+## Current Questions:
+where is the pipeline coming from ? -- TeselaGen/ccw-repeater-example/ccw-repeater-example 
+  - it is getting cloned down from codefresh
+where are images getting published to dockerhub/codefreshImages? 
+  - from the codefresh.yml build step  
+do we need to specifically "start" the newly built images?
+where should we run 
