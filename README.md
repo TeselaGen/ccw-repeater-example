@@ -31,6 +31,11 @@ localhost:3001/postgres
 - codefresh get pipelines
 - codefresh run TeselaGen/ccw-repeater-example/ccw-repeater-example --local -b master
 
+## Setting up local docker containers: 
+yarn docker-build //from ./ or ./e2e-tests this will build the docker images for ccw-repeater and ccw-repeater-cypress respectively 
+
+
+
 
 ## How the whole process works: 
  - add some new code, add a new cypress test for that
@@ -44,8 +49,14 @@ where is the pipeline coming from ? -- TeselaGen/ccw-repeater-example/ccw-repeat
   - it is getting cloned down from codefresh
 where are images getting published to dockerhub/codefreshImages? 
   - from the codefresh.yml build step  
-  
+
 do we need to specifically "start" the newly built images?
 where should we run the cypress test command from? 
 how do we run a docker-compose.yml file with codefresh?
 it appears that the codefresh pipeline branch regex is not working correctly -- master is getting run for all commits
+
+## Next Steps 
+set up s3 storage for cypress test recording fixtures
+set up allure reporter for cypress runs 
+
+

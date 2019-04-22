@@ -38,7 +38,7 @@ steps:
       cypress_tests: 
         image: ${{build_cypress_image}}
         environment:
-            TEST_URL: http://app:3000
+            CYPRESS_TEST_URL: http://app:3000
     composition:
       version: '2'
       services:

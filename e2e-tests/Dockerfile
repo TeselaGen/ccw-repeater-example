@@ -10,11 +10,12 @@ FROM cypress/browsers:node11.13.0-chrome73
 RUN mkdir /app \
   && cd /app \
   WORKDIR /app
-COPY . .
+COPY ./package.json ./package.json
 # COPY .npmrc .npmrc
 # COPY .npmrc server/.npmrc
 # RUN ls -al
 RUN yarn docker-install
+COPY . .
 # RUN (cd ./server && yarn add oracledb)
 
 # expose the port to outside world

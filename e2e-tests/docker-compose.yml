@@ -24,4 +24,4 @@ services:
   cypress_tests:
     image: teselagen/ccw-repeater-cypress
     environment:
-      TEST_URL: http://app:3000
+      CYPRESS_TEST_URL: http://app:3000

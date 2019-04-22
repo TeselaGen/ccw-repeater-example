@@ -1,6 +1,6 @@
 describe("addtodo", function() {
   it(`should add a todo`, () => {
-    const url = process.env.TEST_URL || "http://localhost:3000";
+    const url = Cypress.env("TEST_URL") || "http://localhost:3000";
 
     cy.visit(url);
 

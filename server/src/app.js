@@ -58,7 +58,7 @@ getAppConfig()
         log: console.log
       });
     } else {
-      initDb(app.get("appConfig"));
+      return initDb(app.get("appConfig"));
     }
     return Promise.resolve();
   })
