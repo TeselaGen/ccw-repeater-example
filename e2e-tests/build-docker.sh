@@ -6,4 +6,4 @@
 
 # build image
 #docker build --no-cache -t teselagen/ccw-repeater-cypress:latest -f Dockerfile .
-docker build -t teselagen/ccw-repeater-cypress:latest -f Dockerfile .
+docker build  --no-cache -t teselagen/ccw-repeater-cypress:latest -f Dockerfile .

@@ -1,1 +1,3 @@
-{}
+{
+  "reporter": "mocha-allure-reporter"
+}

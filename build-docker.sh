@@ -5,4 +5,4 @@
 # docker rmi $(docker images -a | grep none | awk '{print $3}') --force
 
 # build image
-docker build -t teselagen/ccw-repeater:latest -f Dockerfile .
+docker build --no-cache -t teselagen/ccw-repeater:latest -f Dockerfile .
