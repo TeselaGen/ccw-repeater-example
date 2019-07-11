@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {BounceLoader} from "teselagen-react-components";
+import {Button} from "@blueprintjs/core"
+import {Loading} from "teselagen-react-components";
 import "./App.css";
 import { ToDos } from "./components/ToDos";
 
@@ -8,7 +9,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>ToDo App</h1>
-        <BounceLoader></BounceLoader>
+        <Button text="iowf"/>
+        <Loading bounce />
         <ToDos page={1} pageSize={7} />
       </div>
     );
